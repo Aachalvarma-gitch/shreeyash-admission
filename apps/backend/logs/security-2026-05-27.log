@@ -1,0 +1,18 @@
+{"level":"warn","message":"Response: 404 (3ms)","timestamp":"2026-05-27T03:20:20.187Z"}
+{"level":"warn","message":"Response: 404 (4ms)","timestamp":"2026-05-27T03:20:22.923Z"}
+{"level":"warn","message":"Response: 404 (3ms)","timestamp":"2026-05-27T03:20:22.932Z"}
+{"level":"warn","message":"Response: 404 (3ms)","timestamp":"2026-05-27T03:20:22.946Z"}
+{"level":"warn","message":"Response: 404 (8ms)","timestamp":"2026-05-27T03:21:31.796Z"}
+{"level":"warn","message":"Response: 404 (13ms)","timestamp":"2026-05-27T03:21:35.271Z"}
+{"level":"warn","message":"Response: 404 (33ms)","timestamp":"2026-05-27T03:21:37.401Z"}
+{"level":"warn","message":"Response: 404 (14ms)","timestamp":"2026-05-27T03:21:37.446Z"}
+{"level":"warn","message":"Response: 404 (6ms)","timestamp":"2026-05-27T03:21:37.456Z"}
+{"level":"warn","message":"MongoDB disconnected","timestamp":"2026-05-27T03:40:09.558Z"}
+{"level":"warn","message":"Response: 401 (33ms)","timestamp":"2026-05-27T03:41:18.597Z"}
+{"level":"warn","message":"Partials directory not found, skipping partial registration","timestamp":"2026-05-27T04:06:41.007Z"}
+{"level":"error","message":"External call to email","timestamp":"2026-05-27T04:07:11.080Z"}
+{"level":"error","message":"External call to email","timestamp":"2026-05-27T04:07:11.083Z"}
+{"level":"error","message":"Email send failed","timestamp":"2026-05-27T04:07:11.084Z"}
+{"level":"warn","message":"Response: 401 (7ms)","timestamp":"2026-05-27T04:07:11.558Z"}
+{"level":"warn","message":"Response: 400 (37ms)","timestamp":"2026-05-27T04:07:11.607Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-05-27T04:07:11.615Z"}

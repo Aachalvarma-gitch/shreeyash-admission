@@ -1,0 +1,12 @@
+{"level":"error","message":"MongoDB connection failed","timestamp":"2026-05-26T11:42:20.671Z"}
+{"level":"warn","message":"Response: 404 (9ms)","timestamp":"2026-05-26T11:42:21.475Z"}
+{"level":"warn","message":"Response: 404 (1ms)","timestamp":"2026-05-26T11:42:21.543Z"}
+{"level":"warn","message":"Response: 404 (1ms)","timestamp":"2026-05-26T11:42:21.638Z"}
+{"level":"error","message":"MongoDB connection failed","timestamp":"2026-05-26T11:42:25.684Z"}
+{"level":"error","message":"MongoDB connection failed","timestamp":"2026-05-26T11:42:30.692Z"}
+{"level":"error","message":"MongoDB connection failed","timestamp":"2026-05-26T11:42:35.709Z"}
+{"level":"error","message":"get-categories failed","timestamp":"2026-05-26T11:42:38.191Z"}
+{"level":"error","message":"Error 500: Operation `categories.find()` buffering timed out after 10000ms","timestamp":"2026-05-26T11:42:38.195Z"}
+{"level":"error","message":"Response: 500 (10019ms)","timestamp":"2026-05-26T11:42:38.195Z"}
+{"level":"error","message":"MongoDB connection failed","timestamp":"2026-05-26T11:42:40.718Z"}
+{"level":"error","message":"MongoDB connection failed","timestamp":"2026-05-26T11:42:45.722Z"}

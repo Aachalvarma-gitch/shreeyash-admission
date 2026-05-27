@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 10
+    },
+    "auditLog": "C:\\Users\\ADMIN\\Downloads\\shreeyash-main\\shreeyash-main\\apps\\backend\\logs\\.a296f8d613a91b410f1fab43be0940b9b262bb60-audit.json",
+    "files": [
+        {
+            "date": 1777189822993,
+            "name": "C:\\Users\\ADMIN\\Downloads\\shreeyash-main\\shreeyash-main\\apps\\backend\\logs\\security-2026-04-26.log",
+            "hash": "fc0581ea1b5ef3c3b5effd79a9e8affb5b669fc37592916f031d8427f6197f88"
+        }
+    ],
+    "hashType": "sha256"
+}

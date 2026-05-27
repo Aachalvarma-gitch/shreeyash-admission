@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 10
+    },
+    "auditLog": "C:\\Users\\komal\\Downloads\\shreeyash project\\shreeyash\\apps\\backend\\logs\\.ef9370e1f151810df68be43f480da0d90a6c3453-audit.json",
+    "files": [
+        {
+            "date": 1779767463464,
+            "name": "C:\\Users\\komal\\Downloads\\shreeyash project\\shreeyash\\apps\\backend\\logs\\security-2026-05-26.log",
+            "hash": "a4207ddb26e3cf537842e2c0726dfc1d2534ee4da610e83da3ba6491372ce129"
+        },
+        {
+            "date": 1779851994017,
+            "name": "C:\\Users\\komal\\Downloads\\shreeyash project\\shreeyash\\apps\\backend\\logs\\security-2026-05-27.log",
+            "hash": "2f5f7fccffd170c74d4f16457c44b92a1a0397b29b51066979fd8850a3301da8"
+        }
+    ],
+    "hashType": "sha256"
+}

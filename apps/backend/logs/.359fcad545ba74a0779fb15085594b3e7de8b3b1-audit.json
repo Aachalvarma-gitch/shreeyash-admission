@@ -1,0 +1,25 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 10
+    },
+    "auditLog": "/Users/akash/Desktop/shreeyash-pratishthan/shreeyas-pratishthan/apps/backend/logs/.359fcad545ba74a0779fb15085594b3e7de8b3b1-audit.json",
+    "files": [
+        {
+            "date": 1776846389612,
+            "name": "/Users/akash/Desktop/shreeyash-pratishthan/shreeyas-pratishthan/apps/backend/logs/combined-2026-04-22.log",
+            "hash": "4b3eb3165a5cfa6b4af26469af450559795c1008497749d45003d93462f0155e"
+        },
+        {
+            "date": 1776911061370,
+            "name": "/Users/akash/Desktop/shreeyash-pratishthan/shreeyas-pratishthan/apps/backend/logs/combined-2026-04-23.log",
+            "hash": "ebe78adae4f16da836d7fe973008f58fa2f16f588eb68b8e566e0a127d575b26"
+        },
+        {
+            "date": 1776996833106,
+            "name": "/Users/akash/Desktop/shreeyash-pratishthan/shreeyas-pratishthan/apps/backend/logs/combined-2026-04-24.log",
+            "hash": "d97d06d61bc99f222c33c20463abfef96a7b19091c34996cd3f4e68dbab00d7a"
+        }
+    ],
+    "hashType": "sha256"
+}

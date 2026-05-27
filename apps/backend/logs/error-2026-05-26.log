@@ -1,0 +1,34 @@
+{"level":"error","message":"user-login failed","timestamp":"2026-05-26T05:22:43.250Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-05-26T05:22:43.268Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-05-26T05:26:55.230Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-05-26T05:52:15.839Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-05-26T05:58:12.980Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-05-26T05:58:12.996Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-05-26T05:58:16.556Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-05-26T05:58:16.567Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-05-26T05:58:18.790Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-05-26T05:58:18.803Z"}
+{"level":"error","message":"External call to email","timestamp":"2026-05-26T06:17:07.731Z"}
+{"level":"error","message":"External call to email","timestamp":"2026-05-26T06:17:07.739Z"}
+{"level":"error","message":"Email send failed","timestamp":"2026-05-26T06:17:07.750Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-05-26T06:17:09.035Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-05-26T07:14:49.107Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-05-26T08:17:17.856Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-05-26T09:43:42.864Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-05-26T09:43:42.885Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-05-26T09:59:48.156Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-05-26T09:59:48.210Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-05-26T10:40:39.385Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-05-26T10:40:39.404Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-05-26T10:58:05.124Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-05-26T11:00:35.620Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-05-26T11:00:35.634Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-05-26T11:01:25.788Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-05-26T11:01:25.817Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-05-26T11:01:57.017Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-05-26T11:01:57.054Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-05-26T11:02:26.827Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-05-26T11:02:26.852Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-05-26T11:15:45.347Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-05-26T11:20:25.329Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-05-26T11:24:36.361Z"}

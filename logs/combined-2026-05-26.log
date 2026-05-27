@@ -1,0 +1,19 @@
+{"level":"error","message":"MongoDB connection failed","timestamp":"2026-05-26T11:42:20.671Z"}
+{"level":"info","message":"Request: GET /api/v1/categories?admissionType=ENGINEERING_FIRST_YEAR","timestamp":"2026-05-26T11:42:21.465Z"}
+{"level":"warn","message":"Response: 404 (9ms)","timestamp":"2026-05-26T11:42:21.474Z"}
+{"level":"info","message":"Request: GET /api/v1/categories?admissionType=POLYTECHNIC","timestamp":"2026-05-26T11:42:21.541Z"}
+{"level":"warn","message":"Response: 404 (1ms)","timestamp":"2026-05-26T11:42:21.543Z"}
+{"level":"info","message":"Request: GET /api/v1/categories","timestamp":"2026-05-26T11:42:21.636Z"}
+{"level":"warn","message":"Response: 404 (1ms)","timestamp":"2026-05-26T11:42:21.638Z"}
+{"level":"error","message":"MongoDB connection failed","timestamp":"2026-05-26T11:42:25.683Z"}
+{"level":"info","message":"Request: GET /api/v1/student/categories?admissionType=ENGINEERING_FIRST_YEAR","timestamp":"2026-05-26T11:42:28.176Z"}
+{"level":"info","message":"Business step: get-categories-started","timestamp":"2026-05-26T11:42:28.178Z"}
+{"level":"info","message":"Business step: get-categories:category-retrieval-started","timestamp":"2026-05-26T11:42:28.178Z"}
+{"level":"error","message":"MongoDB connection failed","timestamp":"2026-05-26T11:42:30.692Z"}
+{"level":"error","message":"MongoDB connection failed","timestamp":"2026-05-26T11:42:35.708Z"}
+{"level":"error","message":"get-categories failed","timestamp":"2026-05-26T11:42:38.190Z"}
+{"level":"info","message":"Business step: get-categories-failed","timestamp":"2026-05-26T11:42:38.192Z"}
+{"level":"error","message":"Error 500: Operation `categories.find()` buffering timed out after 10000ms","timestamp":"2026-05-26T11:42:38.194Z"}
+{"level":"error","message":"Response: 500 (10019ms)","timestamp":"2026-05-26T11:42:38.195Z"}
+{"level":"error","message":"MongoDB connection failed","timestamp":"2026-05-26T11:42:40.717Z"}
+{"level":"error","message":"MongoDB connection failed","timestamp":"2026-05-26T11:42:45.722Z"}

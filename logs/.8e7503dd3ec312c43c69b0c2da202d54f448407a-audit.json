@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 10
+    },
+    "auditLog": "C:\\Users\\komal\\Downloads\\shreeyash project\\shreeyash\\logs\\.8e7503dd3ec312c43c69b0c2da202d54f448407a-audit.json",
+    "files": [
+        {
+            "date": 1779795724549,
+            "name": "C:\\Users\\komal\\Downloads\\shreeyash project\\shreeyash\\logs\\error-2026-05-26.log",
+            "hash": "c95d5eb15cefd920b6d134e1557fd98f278a0c12375dad9f8f68c10a9c919146"
+        }
+    ],
+    "hashType": "sha256"
+}

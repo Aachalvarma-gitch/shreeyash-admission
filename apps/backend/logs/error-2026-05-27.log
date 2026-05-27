@@ -1,0 +1,4 @@
+{"level":"error","message":"External call to email","timestamp":"2026-05-27T04:07:11.080Z"}
+{"level":"error","message":"External call to email","timestamp":"2026-05-27T04:07:11.082Z"}
+{"level":"error","message":"Email send failed","timestamp":"2026-05-27T04:07:11.084Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-05-27T04:07:11.615Z"}

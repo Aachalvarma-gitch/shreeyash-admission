@@ -1,0 +1,268 @@
+{"level":"warn","message":"MongoDB disconnected","timestamp":"2026-04-23T02:49:17.067Z"}
+{"level":"warn","message":"Response: 400 (9ms)","timestamp":"2026-04-23T04:09:19.695Z"}
+{"level":"error","message":"user-registration failed","timestamp":"2026-04-23T04:09:19.699Z"}
+{"level":"error","message":"user-registration failed","timestamp":"2026-04-23T04:09:28.389Z"}
+{"level":"warn","message":"Response: 400 (653ms)","timestamp":"2026-04-23T04:09:28.390Z"}
+{"level":"error","message":"user-registration failed","timestamp":"2026-04-23T04:12:06.296Z"}
+{"level":"warn","message":"Response: 400 (257ms)","timestamp":"2026-04-23T04:12:06.296Z"}
+{"level":"warn","message":"Response: 400 (3ms)","timestamp":"2026-04-23T04:12:08.897Z"}
+{"level":"error","message":"user-registration failed","timestamp":"2026-04-23T04:12:08.901Z"}
+{"level":"error","message":"user-registration failed","timestamp":"2026-04-23T04:12:12.243Z"}
+{"level":"error","message":"Error 500: User validation failed: email: Please provide a valid email","timestamp":"2026-04-23T04:12:12.244Z"}
+{"level":"error","message":"Response: 500 (591ms)","timestamp":"2026-04-23T04:12:12.245Z"}
+{"level":"error","message":"user-registration failed","timestamp":"2026-04-23T04:16:11.555Z"}
+{"level":"warn","message":"Response: 400 (275ms)","timestamp":"2026-04-23T04:16:11.556Z"}
+{"level":"warn","message":"Response: 400 (1ms)","timestamp":"2026-04-23T04:16:13.988Z"}
+{"level":"error","message":"user-registration failed","timestamp":"2026-04-23T04:16:13.990Z"}
+{"level":"error","message":"user-registration failed","timestamp":"2026-04-23T04:20:27.273Z"}
+{"level":"warn","message":"Response: 400 (328ms)","timestamp":"2026-04-23T04:20:27.275Z"}
+{"level":"warn","message":"MongoDB disconnected","timestamp":"2026-04-23T04:26:23.081Z"}
+{"level":"warn","message":"Response: 401 (3ms)","timestamp":"2026-04-23T04:42:45.244Z"}
+{"level":"warn","message":"Response: 401 (3ms)","timestamp":"2026-04-23T04:42:50.055Z"}
+{"level":"warn","message":"Response: 401 (1ms)","timestamp":"2026-04-23T04:42:57.882Z"}
+{"level":"warn","message":"Response: 401 (16ms)","timestamp":"2026-04-23T04:43:08.549Z"}
+{"level":"warn","message":"Response: 401 (1ms)","timestamp":"2026-04-23T04:45:04.687Z"}
+{"level":"warn","message":"Response: 401 (1ms)","timestamp":"2026-04-23T04:45:12.683Z"}
+{"level":"warn","message":"Response: 404 (4ms)","timestamp":"2026-04-23T05:16:43.657Z"}
+{"level":"warn","message":"Response: 404 (1ms)","timestamp":"2026-04-23T05:16:43.662Z"}
+{"level":"warn","message":"Response: 401 (4ms)","timestamp":"2026-04-23T05:17:42.071Z"}
+{"level":"warn","message":"Response: 401 (2ms)","timestamp":"2026-04-23T05:17:50.461Z"}
+{"level":"warn","message":"Response: 401 (4ms)","timestamp":"2026-04-23T05:25:05.241Z"}
+{"level":"warn","message":"Response: 401 (12ms)","timestamp":"2026-04-23T05:45:04.641Z"}
+{"level":"warn","message":"Response: 400 (9ms)","timestamp":"2026-04-23T05:45:04.706Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T05:45:04.713Z"}
+{"level":"error","message":"create-student-application failed","timestamp":"2026-04-23T05:46:21.883Z"}
+{"level":"error","message":"Error 500: Application validation failed: applicationId: Application ID is required","timestamp":"2026-04-23T05:46:21.885Z"}
+{"level":"error","message":"Response: 500 (1429ms)","timestamp":"2026-04-23T05:46:21.885Z"}
+{"level":"warn","message":"Response: 401 (15ms)","timestamp":"2026-04-23T06:15:36.866Z"}
+{"level":"warn","message":"Response: 400 (4ms)","timestamp":"2026-04-23T06:15:36.906Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T06:15:36.908Z"}
+{"level":"warn","message":"Response: 401 (9ms)","timestamp":"2026-04-23T06:31:36.593Z"}
+{"level":"warn","message":"Response: 400 (1ms)","timestamp":"2026-04-23T06:31:36.616Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T06:31:36.619Z"}
+{"level":"warn","message":"Response: 401 (1ms)","timestamp":"2026-04-23T06:32:51.681Z"}
+{"level":"warn","message":"Response: 400 (1ms)","timestamp":"2026-04-23T06:32:51.692Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T06:32:51.700Z"}
+{"level":"error","message":"create-student-application failed","timestamp":"2026-04-23T06:33:15.565Z"}
+{"level":"warn","message":"Response: 400 (1506ms)","timestamp":"2026-04-23T06:33:15.566Z"}
+{"level":"error","message":"create-student-application failed","timestamp":"2026-04-23T06:33:24.429Z"}
+{"level":"warn","message":"Response: 400 (1491ms)","timestamp":"2026-04-23T06:33:24.430Z"}
+{"level":"error","message":"update-student-application failed","timestamp":"2026-04-23T06:36:31.519Z"}
+{"level":"warn","message":"Response: 404 (1456ms)","timestamp":"2026-04-23T06:36:31.520Z"}
+{"level":"warn","message":"Response: 401 (17ms)","timestamp":"2026-04-23T06:39:48.944Z"}
+{"level":"warn","message":"Response: 400 (2ms)","timestamp":"2026-04-23T06:39:48.977Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T06:39:48.980Z"}
+{"level":"warn","message":"Response: 401 (4ms)","timestamp":"2026-04-23T06:42:58.104Z"}
+{"level":"warn","message":"Response: 400 (2ms)","timestamp":"2026-04-23T06:42:58.123Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T06:42:58.125Z"}
+{"level":"warn","message":"Response: 401 (4ms)","timestamp":"2026-04-23T06:43:41.226Z"}
+{"level":"warn","message":"Response: 400 (3ms)","timestamp":"2026-04-23T06:43:41.295Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T06:43:41.298Z"}
+{"level":"warn","message":"Response: 401 (2ms)","timestamp":"2026-04-23T06:46:22.715Z"}
+{"level":"warn","message":"Response: 400 (2ms)","timestamp":"2026-04-23T06:46:22.726Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T06:46:22.728Z"}
+{"level":"warn","message":"Response: 401 (1ms)","timestamp":"2026-04-23T06:50:58.661Z"}
+{"level":"warn","message":"Response: 400 (2ms)","timestamp":"2026-04-23T06:50:58.682Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T06:50:58.686Z"}
+{"level":"warn","message":"Response: 401 (2ms)","timestamp":"2026-04-23T06:53:45.305Z"}
+{"level":"warn","message":"Response: 400 (1ms)","timestamp":"2026-04-23T06:53:45.324Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T06:53:45.325Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-04-23T06:55:04.062Z"}
+{"level":"warn","message":"Response: 401 (1194ms)","timestamp":"2026-04-23T06:55:04.062Z"}
+{"level":"warn","message":"Response: 400 (2ms)","timestamp":"2026-04-23T06:55:04.073Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T06:55:04.075Z"}
+{"level":"warn","message":"Response: 403 (1164ms)","timestamp":"2026-04-23T06:55:52.469Z"}
+{"level":"warn","message":"Response: 403 (1125ms)","timestamp":"2026-04-23T06:55:53.598Z"}
+{"level":"warn","message":"Response: 403 (1099ms)","timestamp":"2026-04-23T06:56:02.180Z"}
+{"level":"warn","message":"Response: 403 (1244ms)","timestamp":"2026-04-23T06:56:03.429Z"}
+{"level":"warn","message":"MongoDB disconnected","timestamp":"2026-04-23T06:57:29.585Z"}
+{"level":"warn","message":"Response: 401 (1ms)","timestamp":"2026-04-23T07:00:21.707Z"}
+{"level":"warn","message":"Response: 400 (2ms)","timestamp":"2026-04-23T07:00:21.718Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T07:00:21.720Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-04-23T07:00:34.920Z"}
+{"level":"warn","message":"Response: 401 (1054ms)","timestamp":"2026-04-23T07:00:34.920Z"}
+{"level":"warn","message":"Response: 400 (2ms)","timestamp":"2026-04-23T07:00:34.927Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T07:00:34.929Z"}
+{"level":"warn","message":"Response: 403 (970ms)","timestamp":"2026-04-23T07:00:39.960Z"}
+{"level":"warn","message":"Response: 403 (1116ms)","timestamp":"2026-04-23T07:00:41.078Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-04-23T07:00:50.978Z"}
+{"level":"warn","message":"Response: 401 (1135ms)","timestamp":"2026-04-23T07:00:50.979Z"}
+{"level":"warn","message":"Response: 400 (1ms)","timestamp":"2026-04-23T07:00:50.987Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T07:00:50.989Z"}
+{"level":"warn","message":"Response: 401 (1ms)","timestamp":"2026-04-23T07:11:12.479Z"}
+{"level":"warn","message":"Response: 400 (2ms)","timestamp":"2026-04-23T07:11:12.493Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T07:11:12.499Z"}
+{"level":"error","message":"get-student-application failed","timestamp":"2026-04-23T07:11:20.149Z"}
+{"level":"warn","message":"Response: 404 (1305ms)","timestamp":"2026-04-23T07:11:20.150Z"}
+{"level":"error","message":"get-student-application failed","timestamp":"2026-04-23T07:11:30.797Z"}
+{"level":"warn","message":"Response: 404 (1311ms)","timestamp":"2026-04-23T07:11:30.798Z"}
+{"level":"warn","message":"Response: 404 (1ms)","timestamp":"2026-04-23T07:15:17.761Z"}
+{"level":"warn","message":"Response: 404 (6ms)","timestamp":"2026-04-23T07:23:32.792Z"}
+{"level":"warn","message":"Response: 404 (1ms)","timestamp":"2026-04-23T07:23:50.383Z"}
+{"level":"warn","message":"Response: 404 (1ms)","timestamp":"2026-04-23T07:24:07.697Z"}
+{"level":"warn","message":"Response: 401 (2ms)","timestamp":"2026-04-23T07:29:39.589Z"}
+{"level":"warn","message":"Response: 404 (1ms)","timestamp":"2026-04-23T07:29:43.131Z"}
+{"level":"warn","message":"Response: 401 (1ms)","timestamp":"2026-04-23T07:33:10.471Z"}
+{"level":"warn","message":"Response: 401 (4ms)","timestamp":"2026-04-23T07:33:10.479Z"}
+{"level":"warn","message":"Response: 400 (9ms)","timestamp":"2026-04-23T07:33:10.528Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T07:33:10.533Z"}
+{"level":"warn","message":"Response: 400 (3ms)","timestamp":"2026-04-23T07:33:10.537Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T07:33:10.542Z"}
+{"level":"warn","message":"Response: 404 (1ms)","timestamp":"2026-04-23T07:34:31.141Z"}
+{"level":"warn","message":"Response: 401 (4ms)","timestamp":"2026-04-23T07:39:16.735Z"}
+{"level":"warn","message":"Response: 401 (1ms)","timestamp":"2026-04-23T07:39:16.739Z"}
+{"level":"warn","message":"Response: 400 (2ms)","timestamp":"2026-04-23T07:39:16.743Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T07:39:16.744Z"}
+{"level":"warn","message":"Response: 400 (1ms)","timestamp":"2026-04-23T07:39:16.753Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T07:39:16.754Z"}
+{"level":"warn","message":"MongoDB disconnected","timestamp":"2026-04-23T07:43:53.018Z"}
+{"level":"warn","message":"MongoDB disconnected","timestamp":"2026-04-23T07:55:07.773Z"}
+{"level":"warn","message":"Response: 401 (2ms)","timestamp":"2026-04-23T07:59:30.144Z"}
+{"level":"warn","message":"Response: 401 (1ms)","timestamp":"2026-04-23T07:59:30.147Z"}
+{"level":"warn","message":"Response: 400 (4ms)","timestamp":"2026-04-23T07:59:30.171Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T07:59:30.183Z"}
+{"level":"warn","message":"Response: 400 (1ms)","timestamp":"2026-04-23T07:59:30.184Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T07:59:30.187Z"}
+{"level":"warn","message":"Response: 401 (4ms)","timestamp":"2026-04-23T07:59:52.307Z"}
+{"level":"warn","message":"Response: 401 (2ms)","timestamp":"2026-04-23T07:59:52.310Z"}
+{"level":"warn","message":"Response: 400 (3ms)","timestamp":"2026-04-23T07:59:52.391Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T07:59:52.394Z"}
+{"level":"warn","message":"Response: 400 (1ms)","timestamp":"2026-04-23T07:59:52.396Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T07:59:52.401Z"}
+{"level":"warn","message":"Response: 401 (2ms)","timestamp":"2026-04-23T08:15:05.338Z"}
+{"level":"warn","message":"MongoDB disconnected","timestamp":"2026-04-23T08:35:03.379Z"}
+{"level":"warn","message":"Response: 401 (3ms)","timestamp":"2026-04-23T08:36:02.782Z"}
+{"level":"warn","message":"Response: 404 (2ms)","timestamp":"2026-04-23T08:37:03.651Z"}
+{"level":"warn","message":"Response: 404 (1ms)","timestamp":"2026-04-23T08:37:27.271Z"}
+{"level":"warn","message":"Response: 404 (1ms)","timestamp":"2026-04-23T08:37:27.277Z"}
+{"level":"warn","message":"Response: 403 (1119ms)","timestamp":"2026-04-23T08:37:39.231Z"}
+{"level":"warn","message":"Response: 404 (1ms)","timestamp":"2026-04-23T08:37:40.357Z"}
+{"level":"warn","message":"Response: 401 (1ms)","timestamp":"2026-04-23T08:37:48.125Z"}
+{"level":"warn","message":"Response: 401 (1ms)","timestamp":"2026-04-23T08:37:48.128Z"}
+{"level":"warn","message":"Response: 401 (3ms)","timestamp":"2026-04-23T08:37:48.136Z"}
+{"level":"warn","message":"Response: 400 (2ms)","timestamp":"2026-04-23T08:37:48.144Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T08:37:48.147Z"}
+{"level":"warn","message":"Response: 400 (0ms)","timestamp":"2026-04-23T08:37:48.153Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T08:37:48.157Z"}
+{"level":"warn","message":"Response: 400 (1ms)","timestamp":"2026-04-23T08:37:48.161Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T08:37:48.170Z"}
+{"level":"warn","message":"Response: 404 (2ms)","timestamp":"2026-04-23T08:45:54.476Z"}
+{"level":"warn","message":"Response: 404 (2ms)","timestamp":"2026-04-23T08:46:51.220Z"}
+{"level":"warn","message":"Response: 404 (1ms)","timestamp":"2026-04-23T08:47:11.329Z"}
+{"level":"warn","message":"Response: 404 (3ms)","timestamp":"2026-04-23T08:55:28.780Z"}
+{"level":"warn","message":"Response: 401 (11ms)","timestamp":"2026-04-23T08:55:28.795Z"}
+{"level":"warn","message":"Response: 400 (4ms)","timestamp":"2026-04-23T08:55:28.823Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T08:55:28.832Z"}
+{"level":"warn","message":"Response: 404 (3ms)","timestamp":"2026-04-23T09:02:04.959Z"}
+{"level":"warn","message":"Response: 401 (1ms)","timestamp":"2026-04-23T09:02:04.962Z"}
+{"level":"warn","message":"Response: 400 (3ms)","timestamp":"2026-04-23T09:02:04.991Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T09:02:04.995Z"}
+{"level":"warn","message":"Response: 404 (1ms)","timestamp":"2026-04-23T09:02:13.010Z"}
+{"level":"warn","message":"Response: 404 (1ms)","timestamp":"2026-04-23T09:14:06.510Z"}
+{"level":"warn","message":"Response: 404 (0ms)","timestamp":"2026-04-23T09:14:09.695Z"}
+{"level":"warn","message":"Response: 401 (1ms)","timestamp":"2026-04-23T09:14:09.698Z"}
+{"level":"warn","message":"Response: 400 (2ms)","timestamp":"2026-04-23T09:14:09.713Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T09:14:09.716Z"}
+{"level":"warn","message":"Response: 404 (2ms)","timestamp":"2026-04-23T09:15:09.027Z"}
+{"level":"warn","message":"Response: 404 (5ms)","timestamp":"2026-04-23T09:15:59.907Z"}
+{"level":"warn","message":"Response: 404 (1ms)","timestamp":"2026-04-23T09:15:59.916Z"}
+{"level":"warn","message":"Response: 404 (3ms)","timestamp":"2026-04-23T09:16:55.132Z"}
+{"level":"warn","message":"Response: 404 (2ms)","timestamp":"2026-04-23T09:18:56.444Z"}
+{"level":"warn","message":"Response: 404 (1ms)","timestamp":"2026-04-23T09:19:47.083Z"}
+{"level":"warn","message":"Response: 404 (5ms)","timestamp":"2026-04-23T09:22:20.309Z"}
+{"level":"warn","message":"Response: 401 (1ms)","timestamp":"2026-04-23T09:22:20.313Z"}
+{"level":"warn","message":"Response: 400 (2ms)","timestamp":"2026-04-23T09:22:20.328Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T09:22:20.332Z"}
+{"level":"warn","message":"Response: 404 (3ms)","timestamp":"2026-04-23T10:22:16.807Z"}
+{"level":"warn","message":"Response: 404 (9ms)","timestamp":"2026-04-23T10:40:11.983Z"}
+{"level":"warn","message":"Response: 404 (1ms)","timestamp":"2026-04-23T10:40:11.988Z"}
+{"level":"warn","message":"Response: 401 (1ms)","timestamp":"2026-04-23T10:40:11.990Z"}
+{"level":"warn","message":"Response: 401 (3ms)","timestamp":"2026-04-23T10:40:11.995Z"}
+{"level":"warn","message":"Response: 400 (20ms)","timestamp":"2026-04-23T10:40:12.051Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T10:40:12.088Z"}
+{"level":"warn","message":"Response: 400 (2ms)","timestamp":"2026-04-23T10:40:12.092Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T10:40:12.098Z"}
+{"level":"warn","message":"Response: 404 (1ms)","timestamp":"2026-04-23T10:41:33.220Z"}
+{"level":"warn","message":"Response: 401 (11ms)","timestamp":"2026-04-23T10:44:03.182Z"}
+{"level":"warn","message":"Response: 401 (4ms)","timestamp":"2026-04-23T10:44:03.191Z"}
+{"level":"warn","message":"Response: 400 (24ms)","timestamp":"2026-04-23T10:44:03.426Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T10:44:03.443Z"}
+{"level":"warn","message":"Response: 400 (1ms)","timestamp":"2026-04-23T10:44:03.447Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T10:44:03.451Z"}
+{"level":"warn","message":"Response: 404 (1ms)","timestamp":"2026-04-23T10:50:14.305Z"}
+{"level":"warn","message":"Response: 404 (1ms)","timestamp":"2026-04-23T10:50:26.437Z"}
+{"level":"warn","message":"Response: 404 (1ms)","timestamp":"2026-04-23T10:50:26.439Z"}
+{"level":"warn","message":"Response: 404 (1ms)","timestamp":"2026-04-23T10:50:34.330Z"}
+{"level":"warn","message":"Response: 401 (7ms)","timestamp":"2026-04-23T10:51:56.520Z"}
+{"level":"warn","message":"Response: 400 (2ms)","timestamp":"2026-04-23T10:51:56.538Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T10:51:56.545Z"}
+{"level":"warn","message":"Response: 401 (1ms)","timestamp":"2026-04-23T10:52:14.437Z"}
+{"level":"warn","message":"Response: 401 (1ms)","timestamp":"2026-04-23T10:52:14.439Z"}
+{"level":"warn","message":"Response: 400 (1ms)","timestamp":"2026-04-23T10:52:14.492Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T10:52:14.494Z"}
+{"level":"warn","message":"Response: 400 (0ms)","timestamp":"2026-04-23T10:52:14.495Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T10:52:14.497Z"}
+{"level":"warn","message":"Response: 404 (1ms)","timestamp":"2026-04-23T10:54:39.220Z"}
+{"level":"warn","message":"Response: 404 (1ms)","timestamp":"2026-04-23T10:54:42.032Z"}
+{"level":"warn","message":"Response: 404 (1ms)","timestamp":"2026-04-23T10:54:42.036Z"}
+{"level":"warn","message":"Response: 403 (1242ms)","timestamp":"2026-04-23T10:56:17.877Z"}
+{"level":"warn","message":"Response: 403 (1198ms)","timestamp":"2026-04-23T10:56:41.055Z"}
+{"level":"warn","message":"Response: 401 (29ms)","timestamp":"2026-04-23T11:01:39.209Z"}
+{"level":"warn","message":"Response: 401 (1ms)","timestamp":"2026-04-23T11:01:39.234Z"}
+{"level":"warn","message":"Response: 400 (8ms)","timestamp":"2026-04-23T11:01:39.299Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T11:01:39.307Z"}
+{"level":"warn","message":"Response: 400 (1ms)","timestamp":"2026-04-23T11:01:39.309Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T11:01:39.315Z"}
+{"level":"warn","message":"Response: 404 (74ms)","timestamp":"2026-04-23T11:03:30.150Z"}
+{"level":"warn","message":"Response: 404 (1ms)","timestamp":"2026-04-23T11:03:30.178Z"}
+{"level":"warn","message":"Response: 401 (14ms)","timestamp":"2026-04-23T11:03:30.196Z"}
+{"level":"warn","message":"Response: 401 (1ms)","timestamp":"2026-04-23T11:03:30.206Z"}
+{"level":"warn","message":"Response: 400 (17ms)","timestamp":"2026-04-23T11:03:30.342Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T11:03:30.359Z"}
+{"level":"warn","message":"Response: 400 (8ms)","timestamp":"2026-04-23T11:03:30.371Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T11:03:30.375Z"}
+{"level":"warn","message":"Response: 404 (1ms)","timestamp":"2026-04-23T11:05:03.956Z"}
+{"level":"warn","message":"Response: 404 (1ms)","timestamp":"2026-04-23T11:05:03.958Z"}
+{"level":"warn","message":"Response: 401 (0ms)","timestamp":"2026-04-23T11:08:56.009Z"}
+{"level":"warn","message":"Response: 400 (1ms)","timestamp":"2026-04-23T11:08:56.018Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T11:08:56.020Z"}
+{"level":"error","message":"get-student-application failed","timestamp":"2026-04-23T11:09:09.305Z"}
+{"level":"warn","message":"Response: 404 (1246ms)","timestamp":"2026-04-23T11:09:09.307Z"}
+{"level":"error","message":"get-student-application failed","timestamp":"2026-04-23T11:09:12.480Z"}
+{"level":"warn","message":"Response: 404 (1366ms)","timestamp":"2026-04-23T11:09:12.481Z"}
+{"level":"warn","message":"Response: 404 (1ms)","timestamp":"2026-04-23T11:22:59.456Z"}
+{"level":"warn","message":"Response: 404 (1ms)","timestamp":"2026-04-23T11:22:59.458Z"}
+{"level":"warn","message":"Response: 403 (1163ms)","timestamp":"2026-04-23T11:23:31.338Z"}
+{"level":"warn","message":"Response: 403 (1151ms)","timestamp":"2026-04-23T11:23:37.380Z"}
+{"level":"warn","message":"Response: 403 (1160ms)","timestamp":"2026-04-23T11:24:01.137Z"}
+{"level":"warn","message":"Response: 401 (1ms)","timestamp":"2026-04-23T11:26:46.425Z"}
+{"level":"warn","message":"Response: 400 (1ms)","timestamp":"2026-04-23T11:26:46.434Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T11:26:46.437Z"}
+{"level":"error","message":"get-student-application failed","timestamp":"2026-04-23T11:26:54.243Z"}
+{"level":"warn","message":"Response: 404 (1576ms)","timestamp":"2026-04-23T11:26:54.244Z"}
+{"level":"error","message":"get-student-application failed","timestamp":"2026-04-23T11:26:57.480Z"}
+{"level":"warn","message":"Response: 404 (1525ms)","timestamp":"2026-04-23T11:26:57.480Z"}
+{"level":"warn","message":"Response: 401 (1ms)","timestamp":"2026-04-23T11:34:01.834Z"}
+{"level":"warn","message":"Response: 400 (1ms)","timestamp":"2026-04-23T11:34:01.856Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T11:34:01.860Z"}
+{"level":"error","message":"get-student-application failed","timestamp":"2026-04-23T11:34:12.275Z"}
+{"level":"warn","message":"Response: 404 (1416ms)","timestamp":"2026-04-23T11:34:12.275Z"}
+{"level":"error","message":"get-student-application failed","timestamp":"2026-04-23T11:34:15.771Z"}
+{"level":"warn","message":"Response: 404 (1396ms)","timestamp":"2026-04-23T11:34:15.772Z"}
+{"level":"warn","message":"Response: 401 (5ms)","timestamp":"2026-04-23T11:49:13.708Z"}
+{"level":"warn","message":"Response: 400 (1ms)","timestamp":"2026-04-23T11:49:13.737Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T11:49:13.739Z"}
+{"level":"warn","message":"MongoDB disconnected","timestamp":"2026-04-23T11:54:07.179Z"}
+{"level":"warn","message":"Response: 401 (4ms)","timestamp":"2026-04-23T11:54:31.231Z"}
+{"level":"warn","message":"Response: 400 (2ms)","timestamp":"2026-04-23T11:54:31.243Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T11:54:31.245Z"}
+{"level":"warn","message":"Response: 401 (1ms)","timestamp":"2026-04-23T11:57:44.141Z"}
+{"level":"warn","message":"Response: 400 (1ms)","timestamp":"2026-04-23T11:57:44.149Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T11:57:44.150Z"}
+{"level":"error","message":"get-student-application failed","timestamp":"2026-04-23T11:58:04.108Z"}
+{"level":"warn","message":"Response: 404 (1422ms)","timestamp":"2026-04-23T11:58:04.109Z"}
+{"level":"error","message":"get-student-application failed","timestamp":"2026-04-23T11:58:15.107Z"}
+{"level":"warn","message":"Response: 404 (1242ms)","timestamp":"2026-04-23T11:58:15.108Z"}
+{"level":"warn","message":"Response: 401 (7ms)","timestamp":"2026-04-23T12:00:10.237Z"}
+{"level":"warn","message":"Response: 400 (1ms)","timestamp":"2026-04-23T12:00:10.252Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-04-23T12:00:10.254Z"}

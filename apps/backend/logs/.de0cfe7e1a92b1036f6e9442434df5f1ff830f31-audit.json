@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 10
+    },
+    "auditLog": "D:\\shreeyash-main\\apps\\backend\\logs\\.de0cfe7e1a92b1036f6e9442434df5f1ff830f31-audit.json",
+    "files": [
+        {
+            "date": 1777266421073,
+            "name": "D:\\shreeyash-main\\apps\\backend\\logs\\error-2026-04-27.log",
+            "hash": "f8449151469a8a9fbf4f532118b6149f0418ea7dc7d54ef513f64d33097a5b13"
+        },
+        {
+            "date": 1777991769500,
+            "name": "D:\\shreeyash-main\\apps\\backend\\logs\\error-2026-05-05.log",
+            "hash": "6a54b79935ac93f34e015b70bc002a8f6bf85949ec11ba1b66ac7bc02c260d7d"
+        }
+    ],
+    "hashType": "sha256"
+}

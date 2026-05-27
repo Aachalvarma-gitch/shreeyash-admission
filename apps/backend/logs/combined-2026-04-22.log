@@ -1,0 +1,99 @@
+{"level":"error","message":"MongoDB connection failed","timestamp":"2026-04-22T08:26:29.743Z"}
+{"level":"error","message":"MongoDB connection failed","timestamp":"2026-04-22T08:26:32.410Z"}
+{"level":"info","message":"Logger service shutting down","timestamp":"2026-04-22T08:26:33.347Z"}
+{"level":"error","message":"MongoDB connection failed","timestamp":"2026-04-22T08:26:36.560Z"}
+{"level":"error","message":"MongoDB connection failed","timestamp":"2026-04-22T08:26:37.747Z"}
+{"level":"info","message":"Logger service shutting down","timestamp":"2026-04-22T08:26:41.589Z"}
+{"level":"error","message":"MongoDB connection failed","timestamp":"2026-04-22T08:28:34.050Z"}
+{"level":"error","message":"MongoDB connection failed","timestamp":"2026-04-22T08:28:39.053Z"}
+{"level":"error","message":"MongoDB connection failed","timestamp":"2026-04-22T08:28:44.056Z"}
+{"level":"error","message":"MongoDB connection failed","timestamp":"2026-04-22T08:28:49.059Z"}
+{"level":"error","message":"MongoDB connection failed","timestamp":"2026-04-22T08:28:54.062Z"}
+{"level":"error","message":"MongoDB connection failed","timestamp":"2026-04-22T08:28:59.064Z"}
+{"level":"error","message":"MongoDB connection failed","timestamp":"2026-04-22T08:29:30.311Z"}
+{"level":"error","message":"MongoDB connection failed","timestamp":"2026-04-22T08:29:35.313Z"}
+{"level":"error","message":"MongoDB connection failed","timestamp":"2026-04-22T08:29:40.315Z"}
+{"level":"error","message":"MongoDB connection failed","timestamp":"2026-04-22T08:29:45.317Z"}
+{"level":"error","message":"MongoDB connection failed","timestamp":"2026-04-22T08:29:50.318Z"}
+{"level":"error","message":"MongoDB connection failed","timestamp":"2026-04-22T08:29:55.320Z"}
+{"level":"error","message":"MongoDB connection failed","timestamp":"2026-04-22T08:30:27.354Z"}
+{"level":"error","message":"MongoDB connection failed","timestamp":"2026-04-22T08:30:32.356Z"}
+{"level":"error","message":"MongoDB connection failed","timestamp":"2026-04-22T08:30:37.358Z"}
+{"level":"error","message":"MongoDB connection failed","timestamp":"2026-04-22T08:30:42.361Z"}
+{"level":"error","message":"MongoDB connection failed","timestamp":"2026-04-22T08:30:47.364Z"}
+{"level":"error","message":"MongoDB connection failed","timestamp":"2026-04-22T08:30:52.365Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T08:31:49.028Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T08:31:50.046Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T08:43:34.403Z"}
+{"level":"info","message":"MongoDB connected successfully","timestamp":"2026-04-22T08:43:38.079Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T08:44:15.423Z"}
+{"level":"info","message":"MongoDB connected successfully","timestamp":"2026-04-22T08:44:18.120Z"}
+{"level":"info","message":"Logger service shutting down","timestamp":"2026-04-22T08:44:28.532Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T08:44:52.447Z"}
+{"level":"info","message":"MongoDB connected successfully","timestamp":"2026-04-22T08:44:55.276Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T08:45:38.066Z"}
+{"level":"info","message":"MongoDB connected successfully","timestamp":"2026-04-22T08:45:41.111Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T09:02:04.203Z"}
+{"level":"info","message":"MongoDB connected successfully","timestamp":"2026-04-22T09:02:06.479Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T09:02:07.417Z"}
+{"level":"info","message":"MongoDB connected successfully","timestamp":"2026-04-22T09:02:09.879Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T09:02:18.245Z"}
+{"level":"info","message":"MongoDB connected successfully","timestamp":"2026-04-22T09:02:20.621Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T09:02:31.203Z"}
+{"level":"info","message":"MongoDB connected successfully","timestamp":"2026-04-22T09:02:33.945Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T09:02:42.818Z"}
+{"level":"info","message":"MongoDB connected successfully","timestamp":"2026-04-22T09:02:45.056Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T09:03:10.197Z"}
+{"level":"info","message":"MongoDB connected successfully","timestamp":"2026-04-22T09:03:12.862Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T09:03:30.572Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T11:03:20.665Z"}
+{"level":"info","message":"MongoDB connected successfully","timestamp":"2026-04-22T11:03:22.969Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T11:06:54.939Z"}
+{"level":"info","message":"MongoDB connected successfully","timestamp":"2026-04-22T11:06:57.303Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T11:06:59.078Z"}
+{"level":"info","message":"MongoDB connected successfully","timestamp":"2026-04-22T11:07:01.352Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T11:08:05.643Z"}
+{"level":"info","message":"MongoDB connected successfully","timestamp":"2026-04-22T11:08:08.571Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T11:08:53.354Z"}
+{"level":"info","message":"MongoDB connected successfully","timestamp":"2026-04-22T11:08:56.715Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T11:08:59.521Z"}
+{"level":"info","message":"MongoDB connected successfully","timestamp":"2026-04-22T11:09:03.002Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T11:09:15.072Z"}
+{"level":"info","message":"MongoDB connected successfully","timestamp":"2026-04-22T11:09:17.310Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T11:09:27.409Z"}
+{"level":"info","message":"MongoDB connected successfully","timestamp":"2026-04-22T11:09:29.892Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T11:09:40.501Z"}
+{"level":"info","message":"MongoDB connected successfully","timestamp":"2026-04-22T11:09:43.080Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T11:09:46.700Z"}
+{"level":"info","message":"MongoDB connected successfully","timestamp":"2026-04-22T11:09:50.187Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T11:09:54.819Z"}
+{"level":"info","message":"MongoDB connected successfully","timestamp":"2026-04-22T11:09:57.389Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T11:10:21.931Z"}
+{"level":"info","message":"MongoDB connected successfully","timestamp":"2026-04-22T11:10:24.302Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T11:10:26.961Z"}
+{"level":"info","message":"MongoDB connected successfully","timestamp":"2026-04-22T11:10:29.463Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T11:10:44.853Z"}
+{"level":"info","message":"MongoDB connected successfully","timestamp":"2026-04-22T11:10:47.108Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T11:10:49.879Z"}
+{"level":"info","message":"MongoDB connected successfully","timestamp":"2026-04-22T11:10:52.361Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T11:10:57.448Z"}
+{"level":"info","message":"MongoDB connected successfully","timestamp":"2026-04-22T11:10:59.804Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T11:11:05.687Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T11:11:09.324Z"}
+{"level":"info","message":"MongoDB connected successfully","timestamp":"2026-04-22T11:11:11.837Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T11:11:23.360Z"}
+{"level":"info","message":"MongoDB connected successfully","timestamp":"2026-04-22T11:11:25.778Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T11:11:32.631Z"}
+{"level":"info","message":"MongoDB connected successfully","timestamp":"2026-04-22T11:11:35.117Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T11:11:36.369Z"}
+{"level":"info","message":"MongoDB connected successfully","timestamp":"2026-04-22T11:11:38.699Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T11:11:40.942Z"}
+{"level":"info","message":"MongoDB connected successfully","timestamp":"2026-04-22T11:11:43.476Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T11:11:46.282Z"}
+{"level":"info","message":"MongoDB connected successfully","timestamp":"2026-04-22T11:11:48.898Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T11:11:50.654Z"}
+{"level":"info","message":"MongoDB connected successfully","timestamp":"2026-04-22T11:11:53.219Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T11:12:18.588Z"}
+{"level":"info","message":"MongoDB connected successfully","timestamp":"2026-04-22T11:12:21.024Z"}
+{"level":"info","message":"Attempting to connect to MongoDB","timestamp":"2026-04-22T11:15:28.120Z"}
+{"level":"info","message":"MongoDB connected successfully","timestamp":"2026-04-22T11:15:31.448Z"}

@@ -595,17 +595,12 @@ async function seedAll() {
           appData.previousCollegeName = getRandomElement(previousColleges);
           appData.previousCollegeAddress = `${getRandomElement(cities)}, Maharashtra`;
           {
-            const uniqueCats = allCourses.reduce((acc: any[], c: any) => {
-              const cId = c.category._id?.toString() || c.category?.toString();
-              const cat1Id = cat1._id?.toString() || cat1?.toString();
-              if (cId && cId !== cat1Id && !acc.find(a => (a._id?.toString() || a.toString()) === cId)) {
-                acc.push(c.category);
-              }
-              return acc;
-            }, []);
-            if (uniqueCats.length > 0) {
-              appData.previousCategory = uniqueCats[getRandomInt(0, uniqueCats.length - 1)]._id || uniqueCats[getRandomInt(0, uniqueCats.length - 1)];
-            }
+            const computingCats = allCategories.filter((c: any) => c.domain === 'computing' && c._id.toString() !== (cat1._id?.toString() || cat1?.toString()));
+            const nonComputingCats = allCategories.filter((c: any) => c.domain !== 'computing' && c._id.toString() !== (cat1._id?.toString() || cat1?.toString()));
+            const useComputing = i % 2 === 0;
+            const pool = useComputing ? computingCats : nonComputingCats;
+            const chosen = pool.length > 0 ? pool[getRandomInt(0, pool.length - 1)] : allCategories[0];
+            appData.previousCategory = chosen._id;
           }
           appData.documents.push(
             { type: 'first_year_marksheet' as const, url: 'https://res.cloudinary.com/sample/first_year_ms.pdf', publicId: 'sample_fy_ms', uploadedAt: new Date() },
@@ -649,6 +644,137 @@ async function seedAll() {
       appsCreated++;
       console.log(`   [${String(i + 1).padStart(2, '0')}/${studentConfigs.length}] ✅ ${cfg.admissionType} → ${cfg.firstName} ${cfg.lastName} (${status})`);
     }
+
+    // ── Sample EFY → DSE FE transfer student ──
+    console.log('\n🔄 Creating sample EFY→DSE FE transfer student...');
+    {
+      const efyEmail = 'student.efy2dse.demo@test.com';
+      let transferUser = await User.findOne({ email: efyEmail });
+      if (!transferUser) {
+        const polyRole = roleMap.get('Student')!;
+        transferUser = await User.create({
+          email: efyEmail,
+          mobile: '9876599999',
+          password: 'Test@123',
+          firstName: 'Demo',
+          lastName: 'Transfer',
+          role: polyRole,
+          isActive: true,
+        });
+      }
+
+      // Step 1: Confirmed EFY application
+      const efyCourses = allCourses.filter((c: any) => {
+        const catId = c.category?._id?.toString() || c.category?.toString();
+        const domain = categoryDomainMap.get(catId);
+        return domain && ['computing', 'mechanical', 'civil', 'electrical', 'electronics'].includes(domain);
+      });
+      const efyCourse = efyCourses[0] as any;
+
+      const existingEfy = await Application.findOne({ user: transferUser._id, admissionType: 'ENGINEERING_FIRST_YEAR' });
+      if (!existingEfy) {
+        await Application.create({
+          applicationId: generateApplicationId('ENG', 100),
+          user: transferUser._id,
+          name: 'Demo Transfer',
+          email: efyEmail,
+          address: '123, MG Road, Pune 411001',
+          admissionType: 'ENGINEERING_FIRST_YEAR',
+          category: efyCourse.category._id || efyCourse.category,
+          primaryCourse: efyCourse._id,
+          tenthMarks: 88,
+          twelfthMarks: 82,
+          cetScore: 145,
+          status: 'ADMISSION_CONFIRMED',
+          statusHistory: buildStatusHistory('ADMISSION_CONFIRMED'),
+          allocatedCourse: efyCourse._id,
+          isActive: true,
+          documents: [
+            { type: 'tenth_marksheet', url: 'https://res.cloudinary.com/sample/tenth_marksheet.pdf', publicId: 'sample_tenth', uploadedAt: new Date() },
+            { type: 'photo', url: 'https://res.cloudinary.com/sample/photo.jpg', publicId: 'sample_photo', uploadedAt: new Date() },
+            { type: 'aadhaar_card', url: 'https://res.cloudinary.com/sample/aadhaar.pdf', publicId: 'sample_aadhaar', uploadedAt: new Date() },
+            { type: 'twelfth_marksheet', url: 'https://res.cloudinary.com/sample/twelfth_marksheet.pdf', publicId: 'sample_twelfth', uploadedAt: new Date() },
+            { type: 'cet_result', url: 'https://res.cloudinary.com/sample/cet_result.pdf', publicId: 'sample_cet', uploadedAt: new Date() },
+            { type: 'leaving_certificate', url: 'https://res.cloudinary.com/sample/leaving_cert.pdf', publicId: 'sample_leaving', uploadedAt: new Date() },
+          ],
+          submittedAt: new Date(Date.now() - 30 * 86400000),
+          meritRank: 15,
+          createdBy: transferUser._id,
+          updatedBy: transferUser._id,
+        });
+        console.log('   ✅ EFY application (ADMISSION_CONFIRMED)');
+      } else {
+        console.log('   ⏭️ EFY application already exists');
+      }
+
+      // Step 2: DSE FE application with previousCategory from EFY
+      const dfeCourses = allCourses.filter((c: any) => {
+        const catId = c.category?._id?.toString() || c.category?.toString();
+        const domain = categoryDomainMap.get(catId);
+        return domain && ['computing', 'mechanical', 'civil', 'electrical', 'electronics'].includes(domain);
+      });
+      const dfeCourse1 = dfeCourses[1] || dfeCourses[0];
+      const dfeCat1 = dfeCourse1.category;
+      const dfeCourse2 = dfeCourses.find((c: any) => {
+        const cId = c.category._id || c.category;
+        const cat1Id = dfeCat1._id || dfeCat1;
+        return cId.toString() !== cat1Id.toString();
+      }) as any;
+
+      const existingDse = await Application.findOne({ user: transferUser._id, admissionType: 'DIRECT_SECOND_YEAR_FE' });
+      if (!existingDse) {
+        await Application.create({
+          applicationId: generateApplicationId('DSF', 101),
+          user: transferUser._id,
+          name: 'Demo Transfer',
+          email: efyEmail,
+          address: '123, MG Road, Pune 411001',
+          admissionType: 'DIRECT_SECOND_YEAR_FE',
+          category: dfeCat1._id || dfeCat1,
+          primaryCourse: dfeCourse1._id,
+          secondaryCourse: dfeCourse2?._id,
+          category2: dfeCourse2 ? (dfeCourse2.category._id || dfeCourse2.category) : undefined,
+          primaryCourse2: dfeCourse2?._id,
+          previousCategory: efyCourse.category._id || efyCourse.category,
+          previousCollegeName: 'Pune Institute of Technology',
+          previousCollegeAddress: 'Pune, Maharashtra',
+          tenthMarks: 88,
+          twelfthMarks: 82,
+          cetScore: 145,
+          status: 'VERIFIED',
+          statusHistory: buildStatusHistory('VERIFIED'),
+          isActive: true,
+          documents: [
+            { type: 'tenth_marksheet', url: 'https://res.cloudinary.com/sample/tenth_marksheet.pdf', publicId: 'sample_tenth', uploadedAt: new Date() },
+            { type: 'photo', url: 'https://res.cloudinary.com/sample/photo.jpg', publicId: 'sample_photo', uploadedAt: new Date() },
+            { type: 'aadhaar_card', url: 'https://res.cloudinary.com/sample/aadhaar.pdf', publicId: 'sample_aadhaar', uploadedAt: new Date() },
+            { type: 'first_year_marksheet', url: 'https://res.cloudinary.com/sample/first_year_ms.pdf', publicId: 'sample_fy_ms', uploadedAt: new Date() },
+            { type: 'previous_college_bonafide', url: 'https://res.cloudinary.com/sample/bonafide.pdf', publicId: 'sample_bonafide', uploadedAt: new Date() },
+            { type: 'twelfth_marksheet', url: 'https://res.cloudinary.com/sample/twelfth_marksheet.pdf', publicId: 'sample_twelfth', uploadedAt: new Date() },
+            { type: 'leaving_certificate', url: 'https://res.cloudinary.com/sample/leaving_cert.pdf', publicId: 'sample_leaving', uploadedAt: new Date() },
+          ],
+          submittedAt: new Date(Date.now() - 5 * 86400000),
+          meritRank: 22,
+          createdBy: transferUser._id,
+          updatedBy: transferUser._id,
+        });
+        console.log('   ✅ DSE FE application (VERIFIED, previousCategory from EFY)');
+      } else {
+        console.log('   ⏭️ DSE FE application already exists');
+      }
+      appsCreated += 2;
+    }
+
+    // 11. Update allocatedSeats on courses based on actual application allocations
+    console.log('\n📊 Updating course allocatedSeats...');
+    const allocations = await Application.aggregate([
+      { $match: { allocatedCourse: { $ne: null } } },
+      { $group: { _id: '$allocatedCourse', count: { $sum: 1 } } },
+    ]);
+    for (const alloc of allocations) {
+      await Course.findByIdAndUpdate(alloc._id, { allocatedSeats: alloc.count });
+    }
+    console.log(`   ✅ Updated allocatedSeats for ${allocations.length} courses`);
 
     // ──────────────────────────────────────────────────
     // SUMMARY

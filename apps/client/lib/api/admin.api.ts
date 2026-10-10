@@ -67,6 +67,31 @@ export const adminApi = createApi({
       invalidatesTags: ["Applications", "AdminStats"],
     }),
 
+    // Seat Allocation
+    allocateSeat: builder.mutation<any, { id: string; priority: string; courseId: string }>({
+      query: ({ id, ...body }) => ({
+        url: `/applications/${id}/allocate`,
+        method: "POST",
+        body,
+      }),
+      invalidatesTags: ["Applications", "AdminStats"],
+    }),
+
+    waitlistApplication: builder.mutation<any, string>({
+      query: (id) => ({
+        url: `/applications/${id}/waitlist`,
+        method: "POST",
+      }),
+      invalidatesTags: ["Applications", "AdminStats"],
+    }),
+
+    getSeatStatus: builder.query<any, void>({
+      query: () => ({
+        url: "/courses/seat-status",
+        method: "GET",
+      }),
+    }),
+
     // Students
     getStudents: builder.query<any, { page?: number; limit?: number; search?: string }>({
       query: (params) => ({
@@ -260,4 +285,7 @@ export const {
   useCreateAdmissionTypeMutation,
   useUpdateAdmissionTypeMutation,
   useDeleteAdmissionTypeMutation,
+  useAllocateSeatMutation,
+  useWaitlistApplicationMutation,
+  useGetSeatStatusQuery,
 } = adminApi;

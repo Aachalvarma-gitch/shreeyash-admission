@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { Eye, Loader2 } from "lucide-react";
 
 import { useAuthStore } from "@/hooks/use-auth";
-import { useBulkUpdateStatusMutation, useGetApplicationsQuery } from "@/lib/api/admin.api";
+import { useAllocateSeatMutation, useBulkUpdateStatusMutation, useGetApplicationsQuery, useGetSeatStatusQuery } from "@/lib/api/admin.api";
 import { useGetCategoriesQuery, useGetCoursesQuery } from "@/lib/api/course.api";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -95,7 +95,7 @@ const statusBadgeVariant = (status?: string) => {
 
 export default function AdminApplicationsPage() {
   const router = useRouter();
-  const { isAuthenticated } = useAuthStore();
+  const { isAuthenticated, isLoading: authLoading } = useAuthStore();
 
   const [status, setStatus] = useState("all");
   const [search, setSearch] = useState("");
@@ -107,33 +107,69 @@ export default function AdminApplicationsPage() {
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [showBulkModal, setShowBulkModal] = useState(false);
   const [bulkStatus, setBulkStatus] = useState("");
+  const [allocating, setAllocating] = useState<{ appId: string; priority: string; courseId: string } | null>(null);
+  const authReady = isAuthenticated && !authLoading;
 
-  const { data: categoriesData } = useGetCategoriesQuery();
-  const categories = categoriesData?.data?.categories || [];
+  const [allocateSeat, { isLoading: isAllocating }] = useAllocateSeatMutation();
+  const { data: seatStatusData } = useGetSeatStatusQuery(undefined, { skip: !authReady });
+  const seatStatusMap = useMemo(() => {
+    const map = new Map<string, string>();
+    (seatStatusData?.data?.seatStatuses || []).forEach((ss: any) => {
+      map.set(ss._id, ss.status);
+    });
+    return map;
+  }, [seatStatusData]);
+
+  const seatColor = (status?: string) => {
+    switch (status) {
+      case "available": return "text-green-600 bg-green-50 border-green-200";
+      case "limited": return "text-yellow-600 bg-yellow-50 border-yellow-200";
+      case "full": return "text-red-600 bg-red-50 border-red-200";
+      default: return "text-gray-500 bg-gray-50 border-gray-200";
+    }
+  };
+
+  const seatLabel = (status?: string) => {
+    switch (status) {
+      case "available": return "Available";
+      case "limited": return "Limited";
+      case "full": return "Full";
+      default: return "Unknown";
+    }
+  };
+
+  const { data: categoriesData } = useGetCategoriesQuery(undefined, { skip: !authReady });
+  const categories = useMemo(() => categoriesData?.data?.categories || [], [categoriesData]);
   const { data: coursesData } = useGetCoursesQuery(
-    categoryFilter === "all" ? undefined : { category: categoryFilter }
+    categoryFilter === "all" ? undefined : { category: categoryFilter },
+    { skip: !authReady }
   );
-  const courses = coursesData?.data?.courses || [];
+  const courses = useMemo(() => coursesData?.data?.courses || [], [coursesData]);
 
-  const { data, isLoading, refetch } = useGetApplicationsQuery({
-    status: status === "all" ? undefined : status,
-    page,
-    limit: itemsPerPage,
-    search: search || undefined,
-  });
+  const applicationQueryArgs = useMemo(
+    () => ({
+      status: status === "all" ? undefined : status,
+      page,
+      limit: itemsPerPage,
+      search: search || undefined,
+    }),
+    [status, page, itemsPerPage, search]
+  );
+  const { data, isLoading, isFetching, isError, error, refetch } = useGetApplicationsQuery(
+    applicationQueryArgs,
+    { skip: !authReady }
+  );
   const [bulkUpdate, { isLoading: isBulkUpdating }] = useBulkUpdateStatusMutation();
 
   useEffect(() => {
-    if (!isAuthenticated) router.push("/login");
-  }, [isAuthenticated, router]);
+    if (!authLoading && !isAuthenticated) router.push("/login");
+  }, [authLoading, isAuthenticated, router]);
 
   useEffect(() => {
     setCourseFilter("all");
   }, [categoryFilter]);
 
-  if (!isAuthenticated) return null;
-
-  const applications = data?.data?.applications || [];
+  const applications = useMemo(() => data?.data?.applications || [], [data]);
   const pagination = data?.data?.pagination || {};
   const visibleApps = useMemo(
     () =>
@@ -146,8 +182,15 @@ export default function AdminApplicationsPage() {
     [applications, categoryFilter, courseFilter, admissionTypeFilter]
   );
 
-  const allIds = visibleApps.map((app: any) => app._id);
+  const allIds = useMemo(() => visibleApps.map((app: any) => app._id), [visibleApps]);
   const allSelected = allIds.length > 0 && selectedIds.length === allIds.length;
+  const errorStatus = (error as any)?.status;
+  const errorMessage =
+    errorStatus === 429
+      ? "Too many requests. Please wait a minute, then try again."
+      : (error as any)?.data?.message || "Unable to load applications.";
+
+  if (!isAuthenticated) return null;
 
   const toggleSelectAll = () => {
     setSelectedIds(allSelected ? [] : allIds);
@@ -164,6 +207,17 @@ export default function AdminApplicationsPage() {
     setSelectedIds([]);
     setBulkStatus("");
     refetch();
+  };
+
+  const handleAllocate = async () => {
+    if (!allocating) return;
+    try {
+      await allocateSeat({ id: allocating.appId, priority: allocating.priority, courseId: allocating.courseId }).unwrap();
+      setAllocating(null);
+      refetch();
+    } catch (err: any) {
+      alert(err?.data?.error || err?.data?.message || "Allocation failed");
+    }
   };
 
   return (
@@ -227,10 +281,20 @@ export default function AdminApplicationsPage() {
 
       <Card>
         <CardContent>
-          {isLoading ? (
+          {isLoading || (isFetching && !data) ? (
             <div className="flex items-center gap-2 py-8">
               <Loader2 className="h-4 w-4 animate-spin" />
               Loading applications...
+            </div>
+          ) : isError ? (
+            <div className="space-y-3 py-8">
+              <div>
+                <div className="font-medium">Applications could not be loaded</div>
+                <div className="text-sm text-muted-foreground">{errorMessage}</div>
+              </div>
+              <Button variant="outline" onClick={() => refetch()}>
+                Try again
+              </Button>
             </div>
           ) : (
             <Table>
@@ -241,55 +305,102 @@ export default function AdminApplicationsPage() {
                   </TableHead>
                   <TableHead>ID</TableHead>
                   <TableHead>Student</TableHead>
-                  <TableHead>Course</TableHead>
+                  <TableHead>1st Priority</TableHead>
+                  <TableHead>Seat</TableHead>
+                  <TableHead>2nd Priority</TableHead>
+                  <TableHead>Seat</TableHead>
                   <TableHead>Type</TableHead>
                   <TableHead>Status</TableHead>
                   <TableHead>Date</TableHead>
-                  <TableHead>Action</TableHead>
+                  <TableHead>Actions</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {visibleApps.map((app: any) => (
-                  <TableRow key={app._id}>
-                    <TableCell>
-                      <Checkbox
-                        checked={selectedIds.includes(app._id)}
-                        onCheckedChange={() => toggleSelectOne(app._id)}
-                      />
-                    </TableCell>
-                    <TableCell>{app.applicationId}</TableCell>
-                    <TableCell>
-                      <div>{app.name}</div>
-                      <div className="text-xs text-muted-foreground">{app.email}</div>
-                    </TableCell>
-                    <TableCell>
-                      <div>{app.primaryCourse?.name || "-"}</div>
-                      <div className="text-xs text-muted-foreground">
-                        {app.secondaryCourse?.name ? `Alt: ${app.secondaryCourse.name}` : ""}
-                      </div>
-                    </TableCell>
-                    <TableCell>
-                      <span className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${admissionTypeBadgeClass(app.admissionType)}`}>
-                        {ADMISSION_TYPE_LABELS[app.admissionType as string] || app.admissionType || "-"}
-                      </span>
-                    </TableCell>
-                    <TableCell>
-                      <Badge variant={statusBadgeVariant(app.status)}>
-                        {app.status?.replace(/_/g, " ")}
-                      </Badge>
-                    </TableCell>
-                    <TableCell>
-                      {app.createdAt ? new Date(app.createdAt).toLocaleDateString("en-IN") : "-"}
-                    </TableCell>
-                    <TableCell>
-                      <Link href={`/admin/applications/${app._id}`}>
-                        <Button size="sm" variant="outline">
-                          <Eye className="h-4 w-4" />
-                        </Button>
-                      </Link>
-                    </TableCell>
-                  </TableRow>
-                ))}
+                {visibleApps.map((app: any) => {
+                  const priStatus = seatStatusMap.get(app.primaryCourse?._id);
+                  const secStatus = seatStatusMap.get(app.secondaryCourse?._id);
+                  const isAllocated = !!app.allocatedCourse;
+                  const canAllocatePrimary = !isAllocated && (priStatus === "available" || priStatus === "limited");
+                  const canAllocateSecondary = !isAllocated && priStatus === "full" && (secStatus === "available" || secStatus === "limited");
+
+                  return (
+                    <TableRow key={app._id}>
+                      <TableCell>
+                        <Checkbox
+                          checked={selectedIds.includes(app._id)}
+                          onCheckedChange={() => toggleSelectOne(app._id)}
+                        />
+                      </TableCell>
+                      <TableCell>{app.applicationId}</TableCell>
+                      <TableCell>
+                        <div>{app.name}</div>
+                        <div className="text-xs text-muted-foreground">{app.email}</div>
+                      </TableCell>
+                      <TableCell>
+                        <div>{app.primaryCourse?.name || "-"}</div>
+                        <div className="text-xs text-muted-foreground">
+                          {app.secondaryCourse?.name ? `Alt: ${app.secondaryCourse.name}` : ""}
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <span className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium border ${seatColor(priStatus)}`}>
+                          {seatLabel(priStatus)}
+                        </span>
+                      </TableCell>
+                      <TableCell>
+                        <div>{app.secondaryCourse?.name || "-"}</div>
+                      </TableCell>
+                      <TableCell>
+                        <span className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium border ${seatColor(secStatus)}`}>
+                          {seatLabel(secStatus)}
+                        </span>
+                      </TableCell>
+                      <TableCell>
+                        <span className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${admissionTypeBadgeClass(app.admissionType)}`}>
+                          {ADMISSION_TYPE_LABELS[app.admissionType as string] || app.admissionType || "-"}
+                        </span>
+                      </TableCell>
+                      <TableCell>
+                        <Badge variant={statusBadgeVariant(app.status)}>
+                          {app.status?.replace(/_/g, " ")}
+                        </Badge>
+                      </TableCell>
+                      <TableCell>
+                        {app.createdAt ? new Date(app.createdAt).toLocaleDateString("en-IN") : "-"}
+                      </TableCell>
+                      <TableCell>
+                        <div className="flex gap-1">
+                          <Link href={`/admin/applications/${app._id}`}>
+                            <Button size="sm" variant="outline">
+                              <Eye className="h-4 w-4" />
+                            </Button>
+                          </Link>
+                          {isAllocated ? (
+                            <Badge variant="default" className="bg-blue-100 text-blue-800 border-blue-200">Confirmed</Badge>
+                          ) : canAllocatePrimary ? (
+                            <Button
+                              size="sm"
+                              className="bg-green-600 hover:bg-green-700 text-white text-xs"
+                              onClick={() => setAllocating({ appId: app._id, priority: "primary", courseId: app.primaryCourse?._id })}
+                            >
+                              1st Priority
+                            </Button>
+                          ) : canAllocateSecondary ? (
+                            <Button
+                              size="sm"
+                              className="bg-yellow-600 hover:bg-yellow-700 text-white text-xs"
+                              onClick={() => setAllocating({ appId: app._id, priority: "secondary", courseId: app.secondaryCourse?._id })}
+                            >
+                              2nd Priority
+                            </Button>
+                          ) : !isAllocated ? (
+                            <Badge variant="outline" className="text-red-600 border-red-200">Full</Badge>
+                          ) : null}
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  );
+                })}
               </TableBody>
             </Table>
           )}
@@ -349,6 +460,23 @@ export default function AdminApplicationsPage() {
             </Button>
             <Button onClick={handleBulkUpdate} disabled={!bulkStatus || isBulkUpdating}>
               {isBulkUpdating ? <Loader2 className="h-4 w-4 animate-spin" /> : "Update"}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={!!allocating} onOpenChange={() => setAllocating(null)}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Confirm Seat Allocation</DialogTitle>
+            <DialogDescription>
+              Allocate {allocating?.priority === "primary" ? "1st Priority" : "2nd Priority"} seat to this student?
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setAllocating(null)}>Cancel</Button>
+            <Button onClick={handleAllocate} disabled={isAllocating}>
+              {isAllocating ? <Loader2 className="h-4 w-4 animate-spin" /> : "Confirm Allocation"}
             </Button>
           </DialogFooter>
         </DialogContent>

@@ -11,7 +11,7 @@ export default function SiteHeader() {
           <Link href="/" className="flex items-center gap-3">
             <div className="w-12 h-12 relative">
               <Image
-                src="https://syp.ac.in/images/logo/logo.png"
+                src="/favicon.webp"
                 alt="Shreeyash Pratishthan"
                 fill
                 className="object-contain"

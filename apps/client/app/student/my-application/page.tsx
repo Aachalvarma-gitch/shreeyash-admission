@@ -222,6 +222,55 @@ export default function MyApplicationPage() {
         </CardContent>
       </Card>
 
+      {['ENGINEERING_FIRST_YEAR', 'DIRECT_SECOND_YEAR_DIPLOMA', 'DIRECT_SECOND_YEAR_FE'].includes(application.admissionType || '') && (
+        <Card>
+          <CardHeader>
+            <CardTitle>Seat Allocation Status</CardTitle>
+            <CardDescription>Your priority-wise seat allocation details.</CardDescription>
+          </CardHeader>
+          <CardContent>
+            {application.allocatedCourse ? (
+              <div className="rounded-lg bg-blue-50 border border-blue-200 p-4 mb-4">
+                <div className="flex items-center gap-3">
+                  <span className="text-2xl text-blue-600">{'\u25CF'}</span>
+                  <div>
+                    <p className="font-semibold text-blue-800">Seat Confirmed</p>
+                    <p className="text-sm text-blue-600">
+                      Allocated: {(application.allocatedCourse as any)?.name || "Unknown course"}
+                    </p>
+                    <div className="text-xs text-blue-500 mt-1">
+                      Status: <Badge variant="default" className="bg-blue-100 text-blue-800">{application.status?.replace(/_/g, " ")}</Badge>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : null}
+            <div className="grid gap-3 md:grid-cols-2">
+              <div className="rounded-lg border p-4 space-y-1">
+                <p className="text-sm text-muted-foreground">First Priority</p>
+                <p className="font-medium">{(application.primaryCourse as any)?.name || "-"}</p>
+                <Badge variant="outline" className="text-yellow-600 border-yellow-200 bg-yellow-50">
+                  {application.allocatedCourse ? (
+                    (application.allocatedCourse as any)?._id === (application.primaryCourse as any)?._id ? "Allocated" : "Not Allocated"
+                  ) : "Awaiting Allocation"}
+                </Badge>
+              </div>
+              <div className="rounded-lg border p-4 space-y-1">
+                <p className="text-sm text-muted-foreground">Second Priority</p>
+                <p className="font-medium">{(application.secondaryCourse as any)?.name || "Not selected"}</p>
+                {application.secondaryCourse && (
+                  <Badge variant="outline" className="text-yellow-600 border-yellow-200 bg-yellow-50">
+                    {application.allocatedCourse ? (
+                      (application.allocatedCourse as any)?._id === (application.secondaryCourse as any)?._id ? "Allocated" : "Not Allocated"
+                    ) : "Awaiting Allocation"}
+                  </Badge>
+                )}
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      )}
+
       <Card>
         <CardHeader>
           <CardTitle>Documents</CardTitle>

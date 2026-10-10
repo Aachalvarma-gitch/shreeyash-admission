@@ -122,6 +122,14 @@ export const studentApi = createApi({
         error.data?.message || "Failed to update application",
     }),
 
+    getPreviousEfyCategory: builder.query<any, void>({
+      query: () => ({
+        url: "/previous-efy-category",
+        method: "GET",
+      }),
+      providesTags: ["Application"],
+    }),
+
     deleteDocument: builder.mutation<{ data: { type: string } }, string>({
       query: (documentType) => ({
         url: `/documents/${documentType}`,
@@ -162,4 +170,5 @@ export const {
   useUpdateApplicationMutation,
   useUploadDocumentMutation,
   useDeleteDocumentMutation,
+  useGetPreviousEfyCategoryQuery,
 } = studentApi;

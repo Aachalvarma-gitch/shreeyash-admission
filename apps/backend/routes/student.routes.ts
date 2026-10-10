@@ -11,6 +11,7 @@ import {
   getCategories,
   getCourses,
   getAdmissionTypes,
+  getPreviousEfyCategory,
   uploadDocument,
   deleteDocument,
 } from '../controllers/student.controller.js';
@@ -30,6 +31,8 @@ router.get('/courses/:categoryId', getCourses);
 
 router.get('/profile', protect, getProfile);
 router.put('/profile', protect, updateProfile);
+
+router.get('/previous-efy-category', protect, auth('Student'), getPreviousEfyCategory);
 
 router.post('/documents/upload', protect, auth('Student'), uploadSingleWithErrorHandling, uploadDocument);
 router.delete('/documents/:documentType', protect, auth('Student'), deleteDocument);

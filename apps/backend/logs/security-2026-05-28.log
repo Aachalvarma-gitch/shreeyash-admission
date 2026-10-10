@@ -1,0 +1,66 @@
+{"level":"error","message":"user-login failed","timestamp":"2026-05-28T05:46:49.829Z"}
+{"level":"warn","message":"Response: 401 (93ms)","timestamp":"2026-05-28T05:46:49.832Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-05-28T05:47:21.444Z"}
+{"level":"warn","message":"Response: 401 (25ms)","timestamp":"2026-05-28T05:47:21.446Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-05-28T05:47:58.902Z"}
+{"level":"warn","message":"Response: 401 (46ms)","timestamp":"2026-05-28T05:47:58.904Z"}
+{"level":"warn","message":"Partials directory not found, skipping partial registration","timestamp":"2026-05-28T05:51:53.361Z"}
+{"level":"warn","message":"Response: 401 (12ms)","timestamp":"2026-05-28T05:52:19.645Z"}
+{"level":"warn","message":"Response: 400 (34ms)","timestamp":"2026-05-28T05:52:19.863Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-05-28T05:52:20.031Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-05-28T05:52:34.503Z"}
+{"level":"warn","message":"Response: 401 (35ms)","timestamp":"2026-05-28T05:52:34.508Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-05-28T05:52:47.435Z"}
+{"level":"warn","message":"Response: 401 (34ms)","timestamp":"2026-05-28T05:52:47.436Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-05-28T05:54:55.146Z"}
+{"level":"warn","message":"Response: 401 (397ms)","timestamp":"2026-05-28T05:54:55.147Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-05-28T05:54:57.252Z"}
+{"level":"warn","message":"Response: 401 (650ms)","timestamp":"2026-05-28T05:54:57.255Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-05-28T05:55:13.278Z"}
+{"level":"warn","message":"Response: 401 (400ms)","timestamp":"2026-05-28T05:55:13.280Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-05-28T05:55:14.988Z"}
+{"level":"warn","message":"Response: 401 (725ms)","timestamp":"2026-05-28T05:55:14.994Z"}
+{"level":"warn","message":"Response: 401 (2ms)","timestamp":"2026-05-28T05:56:05.756Z"}
+{"level":"warn","message":"Response: 400 (4ms)","timestamp":"2026-05-28T05:56:05.779Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-05-28T05:56:05.781Z"}
+{"level":"warn","message":"Response: 401 (15ms)","timestamp":"2026-05-28T06:25:37.871Z"}
+{"level":"warn","message":"Response: 401 (19ms)","timestamp":"2026-05-28T07:05:36.436Z"}
+{"level":"warn","message":"Response: 401 (2ms)","timestamp":"2026-05-28T07:05:36.462Z"}
+{"level":"warn","message":"Response: 401 (4ms)","timestamp":"2026-05-28T07:05:36.485Z"}
+{"level":"warn","message":"Response: 401 (2ms)","timestamp":"2026-05-28T07:05:36.495Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-05-28T07:05:36.721Z"}
+{"level":"warn","message":"Response: 401 (57ms)","timestamp":"2026-05-28T07:05:36.723Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-05-28T07:05:36.734Z"}
+{"level":"warn","message":"Response: 401 (65ms)","timestamp":"2026-05-28T07:05:36.743Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-05-28T07:22:09.518Z"}
+{"level":"warn","message":"Response: 401 (35ms)","timestamp":"2026-05-28T07:22:09.521Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-05-28T07:22:20.068Z"}
+{"level":"warn","message":"Response: 401 (15ms)","timestamp":"2026-05-28T07:22:20.069Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-05-28T07:22:59.769Z"}
+{"level":"warn","message":"Response: 401 (86ms)","timestamp":"2026-05-28T07:22:59.771Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-05-28T07:23:36.490Z"}
+{"level":"warn","message":"Response: 401 (47ms)","timestamp":"2026-05-28T07:23:36.561Z"}
+{"level":"error","message":"Error 500: AuditLog validation failed: userRole: Path `userRole` is required., userId: Path `userId` is required., action: `UPDATE` is not a valid enum value for path `action`.","timestamp":"2026-05-28T07:30:09.778Z"}
+{"level":"error","message":"Response: 500 (88ms)","timestamp":"2026-05-28T07:30:09.780Z"}
+{"level":"warn","message":"Response: 400 (32ms)","timestamp":"2026-05-28T07:30:21.497Z"}
+{"level":"warn","message":"Response: 400 (43ms)","timestamp":"2026-05-28T07:31:49.670Z"}
+{"level":"warn","message":"Response: 400 (15ms)","timestamp":"2026-05-28T07:34:32.162Z"}
+{"level":"warn","message":"Response: 400 (14ms)","timestamp":"2026-05-28T07:34:36.116Z"}
+{"level":"warn","message":"Response: 400 (61ms)","timestamp":"2026-05-28T07:34:47.700Z"}
+{"level":"error","message":"Error 500: AuditLog validation failed: userRole: Path `userRole` is required., userId: Path `userId` is required., action: `UPDATE` is not a valid enum value for path `action`.","timestamp":"2026-05-28T07:35:43.142Z"}
+{"level":"error","message":"Response: 500 (32ms)","timestamp":"2026-05-28T07:35:43.143Z"}
+{"level":"warn","message":"Response: 401 (120ms)","timestamp":"2026-05-28T07:47:04.176Z"}
+{"level":"warn","message":"Response: 401 (77ms)","timestamp":"2026-05-28T07:47:04.203Z"}
+{"level":"warn","message":"Response: 401 (94ms)","timestamp":"2026-05-28T07:47:04.219Z"}
+{"level":"warn","message":"Response: 401 (168ms)","timestamp":"2026-05-28T07:47:04.298Z"}
+{"level":"warn","message":"Response: 401 (167ms)","timestamp":"2026-05-28T07:47:04.306Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-05-28T07:47:04.392Z"}
+{"level":"warn","message":"Response: 401 (52ms)","timestamp":"2026-05-28T07:47:04.395Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-05-28T07:47:04.409Z"}
+{"level":"warn","message":"Response: 401 (69ms)","timestamp":"2026-05-28T07:47:04.425Z"}
+{"level":"warn","message":"Response: 401 (52ms)","timestamp":"2026-05-28T07:47:04.541Z"}
+{"level":"warn","message":"Response: 401 (45ms)","timestamp":"2026-05-28T07:47:04.551Z"}
+{"level":"warn","message":"Response: 401 (48ms)","timestamp":"2026-05-28T07:47:04.556Z"}
+{"level":"warn","message":"MongoDB disconnected","timestamp":"2026-05-28T08:09:57.642Z"}
+{"level":"warn","message":"MongoDB disconnected","timestamp":"2026-05-28T10:09:39.937Z"}
+{"level":"warn","message":"Response: 401 (7ms)","timestamp":"2026-05-28T10:09:54.396Z"}

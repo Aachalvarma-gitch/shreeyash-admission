@@ -1,0 +1,23 @@
+{"level":"error","message":"user-login failed","timestamp":"2026-05-28T05:46:49.828Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-05-28T05:47:21.444Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-05-28T05:47:58.902Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-05-28T05:52:20.031Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-05-28T05:52:34.503Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-05-28T05:52:47.435Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-05-28T05:54:55.146Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-05-28T05:54:57.251Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-05-28T05:55:13.278Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-05-28T05:55:14.988Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-05-28T05:56:05.780Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-05-28T07:05:36.720Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-05-28T07:05:36.734Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-05-28T07:22:09.518Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-05-28T07:22:20.068Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-05-28T07:22:59.769Z"}
+{"level":"error","message":"user-login failed","timestamp":"2026-05-28T07:23:36.490Z"}
+{"level":"error","message":"Error 500: AuditLog validation failed: userRole: Path `userRole` is required., userId: Path `userId` is required., action: `UPDATE` is not a valid enum value for path `action`.","timestamp":"2026-05-28T07:30:09.778Z"}
+{"level":"error","message":"Response: 500 (88ms)","timestamp":"2026-05-28T07:30:09.780Z"}
+{"level":"error","message":"Error 500: AuditLog validation failed: userRole: Path `userRole` is required., userId: Path `userId` is required., action: `UPDATE` is not a valid enum value for path `action`.","timestamp":"2026-05-28T07:35:43.142Z"}
+{"level":"error","message":"Response: 500 (32ms)","timestamp":"2026-05-28T07:35:43.143Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-05-28T07:47:04.392Z"}
+{"level":"error","message":"refresh-token failed","timestamp":"2026-05-28T07:47:04.408Z"}

@@ -24,9 +24,11 @@ export default function AdminLayout({
   const router = useRouter()
   const { setTheme, resolvedTheme } = useTheme()
   const { user, logout, isAuthenticated } = useAuthStore()
-  const { data: statsData } = useGetStatsQuery()
   const [mounted, setMounted] = useState(false)
   const [hydrated, setHydrated] = useState(false)
+  const { data: statsData } = useGetStatsQuery(undefined, {
+    skip: !hydrated || !isAuthenticated,
+  })
 
   useEffect(() => {
     setHydrated(true)

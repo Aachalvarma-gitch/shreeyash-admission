@@ -11,7 +11,7 @@
     "build:watch": "tsc --watch",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch",
-    "seed": "tsx seed.ts",
+    "seed": "tsx seed-all.ts",
     "migrate-lead-stages": "tsx scripts/migrate-lead-stages.ts",
     "typecheck": "tsc --noEmit"
   },

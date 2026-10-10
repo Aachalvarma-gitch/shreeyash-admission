@@ -86,9 +86,9 @@ app.use(
 const limiter = rateLimit({
   windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS || "900000"),
   max:
-    process.env.NODE_ENV === "development"
-      ? parseInt(process.env.RATE_LIMIT_MAX_REQUESTS_DEV || "1000")
-      : parseInt(process.env.RATE_LIMIT_MAX_REQUESTS || "100"),
+    process.env.NODE_ENV === "production"
+      ? parseInt(process.env.RATE_LIMIT_MAX_REQUESTS || "100")
+      : parseInt(process.env.RATE_LIMIT_MAX_REQUESTS_DEV || "1000"),
   message: "Too many requests from this IP, please try again later.",
   standardHeaders: true,
   legacyHeaders: false,

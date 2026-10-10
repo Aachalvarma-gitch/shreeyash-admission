@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
 import Link from "next/link";
 import { useAuthStore } from "@/hooks/use-auth";
-import { useGetApplicationByIdQuery, useUpdateApplicationStatusMutation, useUploadDocumentMutation } from "@/lib/api/admin.api";
+import { useAllocateSeatMutation, useGetApplicationByIdQuery, useGetSeatStatusQuery, useUpdateApplicationStatusMutation, useUploadDocumentMutation } from "@/lib/api/admin.api";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -451,6 +451,10 @@ export default function AdminApplicationReviewPage() {
           </CardContent>
         </Card>
 
+        {['ENGINEERING_FIRST_YEAR', 'DIRECT_SECOND_YEAR_DIPLOMA', 'DIRECT_SECOND_YEAR_FE'].includes(application.admissionType) && (
+          <SeatAllocationCard application={application} onAllocated={refetch} />
+        )}
+
         <Card className="md:col-span-2">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
@@ -564,5 +568,104 @@ export default function AdminApplicationReviewPage() {
         </Card>
       </div>
     </div>
+  );
+}
+
+function SeatAllocationCard({ application, onAllocated }: { application: any; onAllocated: () => void }) {
+  const [allocateSeat, { isLoading: isAllocating }] = useAllocateSeatMutation();
+  const { data: seatStatusData } = useGetSeatStatusQuery();
+  const seatStatusMap = new Map<string, string>();
+  (seatStatusData?.data?.seatStatuses || []).forEach((ss: any) => {
+    seatStatusMap.set(ss._id, ss.status);
+  });
+
+  const priStatus = seatStatusMap.get(application.primaryCourse?._id);
+  const secStatus = seatStatusMap.get(application.secondaryCourse?._id);
+  const isAllocated = !!application.allocatedCourse;
+
+  const seatBadge = (status?: string) => {
+    switch (status) {
+      case "available": return <Badge className="bg-green-100 text-green-800 border-green-200">Available</Badge>;
+      case "limited": return <Badge className="bg-yellow-100 text-yellow-800 border-yellow-200">Limited</Badge>;
+      case "full": return <Badge className="bg-red-100 text-red-800 border-red-200">Full</Badge>;
+      default: return <Badge variant="outline">Unknown</Badge>;
+    }
+  };
+
+  const handleAllocate = async (priority: string, courseId: string) => {
+    try {
+      await allocateSeat({ id: application._id, priority, courseId }).unwrap();
+      onAllocated();
+    } catch (err: any) {
+      alert(err?.data?.error || err?.data?.message || "Allocation failed");
+    }
+  };
+
+  return (
+    <Card className="md:col-span-2 border-blue-200">
+      <CardHeader>
+        <CardTitle className="flex items-center gap-2 text-blue-700">
+          Seat Allocation
+        </CardTitle>
+        <CardDescription>Manage seat assignment for this application</CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        {isAllocated ? (
+          <div className="rounded-lg bg-blue-50 border border-blue-200 p-4 flex items-center gap-3">
+            <span className="text-blue-600 text-lg">{'\u25CF'}</span>
+            <div>
+              <p className="font-semibold text-blue-800">Seat Confirmed</p>
+              <p className="text-sm text-blue-600">
+                Allocated: {(application.allocatedCourse as any)?.name || "Unknown course"}
+              </p>
+            </div>
+          </div>
+        ) : (
+          <>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="rounded-lg border p-4 space-y-2">
+                <p className="font-medium">First Priority</p>
+                <p className="text-sm">{application.primaryCourse?.name || "-"}</p>
+                <div>{seatBadge(priStatus)}</div>
+                {(priStatus === "available" || priStatus === "limited") && (
+                  <Button
+                    size="sm"
+                    className="bg-green-600 hover:bg-green-700"
+                    onClick={() => handleAllocate("primary", application.primaryCourse?._id)}
+                    disabled={isAllocating}
+                  >
+                    {isAllocating ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
+                    Allocate First Priority
+                  </Button>
+                )}
+                {priStatus === "full" && <p className="text-xs text-red-600">No seats available</p>}
+              </div>
+              <div className="rounded-lg border p-4 space-y-2">
+                <p className="font-medium">Second Priority</p>
+                <p className="text-sm">{application.secondaryCourse?.name || "-"}</p>
+                <div>{seatBadge(secStatus)}</div>
+                {(secStatus === "available" || secStatus === "limited") && (
+                  <Button
+                    size="sm"
+                    className="bg-yellow-600 hover:bg-yellow-700"
+                    onClick={() => handleAllocate("secondary", application.secondaryCourse?._id)}
+                    disabled={isAllocating}
+                  >
+                    {isAllocating ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
+                    Allocate Second Priority
+                  </Button>
+                )}
+                {secStatus === "full" && <p className="text-xs text-red-600">No seats available</p>}
+              </div>
+            </div>
+            <div className="flex gap-2 pt-2">
+              <Button variant="outline" size="sm" onClick={() => alert("Waitlist logic goes here")}>
+                Put on Waiting List
+              </Button>
+            </div>
+          </>
+        )}
+      </CardContent>
+    </Card>
   );
 }

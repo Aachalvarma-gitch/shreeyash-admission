@@ -11,6 +11,7 @@ import {
   useGetCategoriesQuery,
   useGetCoursesQuery,
   useGetMyApplicationQuery,
+  useGetPreviousEfyCategoryQuery,
   useUpdateApplicationMutation,
   useUploadDocumentMutation,
   useDeleteDocumentMutation,
@@ -219,6 +220,20 @@ export default function ApplicationPage() {
   const courses = coursesData?.data?.courses || [];
   const courses2 = coursesData2?.data?.courses || [];
 
+  const previousCategoryObj = categories.find((c: any) => c._id === previousCategory);
+  const isPreviousCategoryComputing = previousCategoryObj?.domain === 'computing';
+
+  const dseFeDisabledCategories = new Set<string>();
+  if (admissionType === 'DIRECT_SECOND_YEAR_FE' && previousCategory) {
+    if (isPreviousCategoryComputing) {
+      categories
+        .filter((c: any) => c.domain === 'computing')
+        .forEach((c: any) => dseFeDisabledCategories.add(c._id));
+    } else {
+      dseFeDisabledCategories.add(previousCategory);
+    }
+  }
+
   useEffect(() => {
     if (!existing) return;
     const catId = typeof existing.category === "object" ? existing.category?._id : existing.category;
@@ -417,7 +432,7 @@ export default function ApplicationPage() {
               <Label>Select Admission Type</Label>
               <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                 {admissionTypes
-                  .filter((at: any) => at.slug?.toUpperCase() !== 'BRANCH_CHANGE') // TEMPORARILY HIDDEN
+                  .filter((at: any) => !['BRANCH_CHANGE', 'POLYTECHNIC', 'DIRECT_SECOND_YEAR', 'COLLEGE_TRANSFER'].includes(at.slug?.toUpperCase())) // TEMPORARILY HIDDEN
                   .map((at: any) => (
                     <Card
                       key={at._id}
@@ -491,23 +506,14 @@ export default function ApplicationPage() {
                     )}
                   </div>
                 ))}
-                {/* For DSE FE: select which category they studied in First Year */}
+                {/* For DSE FE: auto-fetch previous EFY category */}
                 {admissionType === 'DIRECT_SECOND_YEAR_FE' && (
-                  <div className="space-y-2">
-                    <Label>Category studied in First Year *</Label>
-                    <Select
-                      value={previousCategory}
-                      onChange={(e) => { setPreviousCategory(e.target.value); updateForm("previousCategory", e.target.value); }}
-                    >
-                      <option value="">-- Select Category --</option>
-                      {categories.map((cat: any) => (
-                        <option key={cat._id} value={cat._id}>{cat.name}</option>
-                      ))}
-                    </Select>
-                    <p className="text-xs text-muted-foreground">
-                      This category will be disabled in course selection since you already studied it.
-                    </p>
-                  </div>
+                  <PreviousEfyCategoryField
+                    onCategoryFetched={(catId) => {
+                      setPreviousCategory(catId);
+                      updateForm("previousCategory", catId);
+                    }}
+                  />
                 )}
               </div>
             </div>
@@ -527,9 +533,13 @@ export default function ApplicationPage() {
                 {/* Category 1 */}
                 <div className="space-y-2">
                   <Label>Category *</Label>
-                  {admissionType === 'DIRECT_SECOND_YEAR_FE' && (
+                  {admissionType === 'DIRECT_SECOND_YEAR_FE' && previousCategory && (
                     <p className="text-xs text-muted-foreground mb-1">
-                      You studied <strong>{categories.find((c: any) => c._id === previousCategory)?.name || 'a category'}</strong> in First Year — it is disabled below.
+                      {isPreviousCategoryComputing ? (
+                        <>You studied in <strong>Computer</strong> stream in First Year — all Computer-related categories are disabled below. Select a non-computer stream.</>
+                      ) : (
+                        <>You studied <strong>{categories.find((c: any) => c._id === previousCategory)?.name || 'a category'}</strong> in First Year — it is disabled below.</>
+                      )}
                     </p>
                   )}
                   <Select
@@ -545,7 +555,7 @@ export default function ApplicationPage() {
                   >
                     <option value="">-- Select Category --</option>
                     {filteredCategories.map((cat: any) => {
-                      const isDisabled = admissionType === 'DIRECT_SECOND_YEAR_FE' && cat._id === previousCategory;
+                      const isDisabled = dseFeDisabledCategories.has(cat._id);
                       return (
                         <option
                           key={cat._id}
@@ -553,7 +563,7 @@ export default function ApplicationPage() {
                           disabled={isDisabled}
                           className={isDisabled ? "text-muted-foreground" : ""}
                         >
-                          {cat.name}{isDisabled ? " (studied in First Year)" : ""}
+                          {cat.name}{isDisabled ? (isPreviousCategoryComputing ? " (Computer stream)" : " (studied in First Year)") : ""}
                         </option>
                       );
                     })}
@@ -624,20 +634,22 @@ export default function ApplicationPage() {
                     </option>
                     {filteredCategories.map((cat: any) => {
                       const isPrimaryCategory = cat._id === category;
+                      const isDisabled = isPrimaryCategory || dseFeDisabledCategories.has(cat._id);
                       return (
                         <option
                           key={cat._id}
                           value={cat._id}
-                          disabled={isPrimaryCategory}
-                          className={isPrimaryCategory ? "text-muted-foreground" : ""}
+                          disabled={isDisabled}
+                          className={isDisabled ? "text-muted-foreground" : ""}
                         >
-                          {cat.name}{isPrimaryCategory ? " (selected in Section 1)" : ""}
+                          {cat.name}
+                          {isPrimaryCategory ? " (selected in Section 1)" : dseFeDisabledCategories.has(cat._id) ? (isPreviousCategoryComputing ? " (Computer stream)" : " (studied in First Year)") : ""}
                         </option>
                       );
                     })}
                   </Select>
                   <p className="text-xs text-muted-foreground">
-                    All categories are shown. The category selected in Section 1 is disabled.
+                    All categories are shown. {admissionType === 'DIRECT_SECOND_YEAR_FE' && previousCategory && isPreviousCategoryComputing ? 'Computer-related categories are disabled.' : 'The category selected in Section 1 is disabled.'}
                   </p>
                 </div>
 
@@ -848,6 +860,43 @@ export default function ApplicationPage() {
           </Button>
         )}
       </div>
+    </div>
+  );
+}
+
+function PreviousEfyCategoryField({ onCategoryFetched }: { onCategoryFetched: (catId: string) => void }) {
+  const { data: efyData, isLoading } = useGetPreviousEfyCategoryQuery();
+  const category = efyData?.data?.previousCategory;
+
+  useEffect(() => {
+    if (category?._id) {
+      onCategoryFetched(category._id);
+    }
+  }, [category?._id, onCategoryFetched]);
+
+  return (
+    <div className="space-y-2">
+      <Label>Category studied in First Year *</Label>
+      {isLoading ? (
+        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <Loader2 className="h-4 w-4 animate-spin" />
+          Loading your confirmed Engineering First Year category...
+        </div>
+      ) : category ? (
+        <div className="rounded-md border bg-muted/50 px-3 py-2 text-sm">
+          <span className="font-medium">{category.name}</span>
+          <span className="text-muted-foreground ml-2">(auto-detected from your confirmed Engineering First Year admission)</span>
+        </div>
+      ) : (
+        <div className="rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">
+          No confirmed Engineering First Year admission found. Please contact the admin.
+        </div>
+      )}
+      {category && category.domain === 'computing' && (
+        <p className="text-xs text-muted-foreground">
+          You studied in the <strong>Computer</strong> stream — all Computer-related categories will be disabled. Only non-computer streams can be selected.
+        </p>
+      )}
     </div>
   );
 }

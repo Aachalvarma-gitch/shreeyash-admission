@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 10
+    },
+    "auditLog": "C:\\Users\\LENOVO\\Downloads\\shreeyash-final-thus (1)\\shreeyash\\apps\\backend\\logs\\.355130b1786301de8a5bb18ee2965bc8030d5021-audit.json",
+    "files": [
+        {
+            "date": 1780319337758,
+            "name": "C:\\Users\\LENOVO\\Downloads\\shreeyash-final-thus (1)\\shreeyash\\apps\\backend\\logs\\combined-2026-06-01.log",
+            "hash": "7c1b647dd6f3a7f4e4f1535a4538c316f464d0c4ae22ca72d92287bd61c138e4"
+        }
+    ],
+    "hashType": "sha256"
+}

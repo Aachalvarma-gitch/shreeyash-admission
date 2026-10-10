@@ -13,6 +13,7 @@ import { successResponse, errorResponse } from '../utils/response.js';
 import { v4 as uuidv4 } from 'uuid';
 import { uploadToCloudinary } from '../services/cloudinary.service.js';
 import { uploadSingleWithErrorHandling } from '../middlewares/upload';
+import { allocateSeat, waitlistApplication, getSeatStatus } from '../controllers/seatAllocation.controller.js';
 
 const router = Router();
 
@@ -363,6 +364,11 @@ router.put('/applications/bulk-status', asyncHandler(async (req, res: any) => {
 
   successResponse(res, { updated: result.modifiedCount }, 'Applications updated successfully');
 }));
+
+// ==================== SEAT ALLOCATION ====================
+router.post('/applications/:id/allocate', asyncHandler(allocateSeat));
+router.post('/applications/:id/waitlist', asyncHandler(waitlistApplication));
+router.get('/courses/seat-status', asyncHandler(getSeatStatus));
 
 // ==================== STUDENTS ====================
 router.get('/students', asyncHandler(async (req, res: any) => {

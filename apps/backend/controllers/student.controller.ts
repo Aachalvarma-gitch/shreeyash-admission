@@ -163,16 +163,31 @@ export const createApplication = asyncHandler(async (req: TypedRequest<CREATE_AP
 
     stepLogger.step("validation-completed", { validationPassed: true });
 
+    // Auto-populate previousCategory for DSE FE from confirmed EFY application
+    let autoPreviousCategory = req.body.previousCategory;
+    if (admissionType === 'DIRECT_SECOND_YEAR_FE' && !autoPreviousCategory) {
+      const efyApp = await Application.findOne({
+        user: req.user._id,
+        admissionType: 'ENGINEERING_FIRST_YEAR',
+        status: 'ADMISSION_CONFIRMED',
+      });
+      if (efyApp && efyApp.category) {
+        autoPreviousCategory = efyApp.category;
+      }
+    }
+
     const {
       name, email, address,
       tenthMarks, twelfthMarks, cetScore, jeeScore,
       diplomaCollege, diplomaCgpa, diplomaPercentage, diplomaYearOfPassing,
       transferType, previousCollegeName, previousCollegeAddress,
       category, primaryCourse, secondaryCourse,
-      previousCategory,
+      previousCategory: bodyPreviousCategory,
       category2, primaryCourse2, secondaryCourse2,
       documents,
     } = req.body;
+
+    const effectivePreviousCategory = autoPreviousCategory || bodyPreviousCategory;
 
     if (primaryCourse === secondaryCourse) {
       stepLogger.fail(new Error("Same course selected"), { reason: "primary_secondary_same" });
@@ -221,7 +236,7 @@ export const createApplication = asyncHandler(async (req: TypedRequest<CREATE_AP
       diplomaCollege, diplomaCgpa, diplomaPercentage, diplomaYearOfPassing,
       transferType, previousCollegeName, previousCollegeAddress,
       category, primaryCourse, secondaryCourse,
-      previousCategory,
+      previousCategory: effectivePreviousCategory,
       category2, primaryCourse2, secondaryCourse2,
       documents: documents || [],
       status: "SUBMITTED",
@@ -303,6 +318,19 @@ export const updateApplication = asyncHandler(async (req: TypedRequest<UPDATE_AP
       errorResponse(res, "No draft application found", 404);
       return;
     }
+
+    // Auto-populate previousCategory for DSE FE from confirmed EFY
+    if (application.admissionType === 'DIRECT_SECOND_YEAR_FE' && !req.body.previousCategory && !application.previousCategory) {
+      const efyApp = await Application.findOne({
+        user: req.user._id,
+        admissionType: 'ENGINEERING_FIRST_YEAR',
+        status: 'ADMISSION_CONFIRMED',
+      });
+      if (efyApp && efyApp.category) {
+        req.body.previousCategory = efyApp.category;
+      }
+    }
+
     const updates = req.body;
     const allowedUpdates = [
       "name", "email", "address", "admissionType",
@@ -408,6 +436,25 @@ export const getAdmissionTypes = asyncHandler(async (req: AuthRequest, res: any)
     stepLogger.fail(error, { operation: "get-admission-types", errorType: error.name, errorMessage: error.message });
     throw error;
   }
+});
+
+export const getPreviousEfyCategory = asyncHandler(async (req: AuthRequest, res: any) => {
+  if (!req.user) {
+    errorResponse(res, "Not authenticated", 401);
+    return;
+  }
+  const efyApp = await Application.findOne({
+    user: req.user._id,
+    admissionType: 'ENGINEERING_FIRST_YEAR',
+    status: 'ADMISSION_CONFIRMED',
+  }).populate('category', 'name domain');
+
+  if (!efyApp || !efyApp.category) {
+    successResponse(res, { previousCategory: null }, "No confirmed EFY application found");
+    return;
+  }
+
+  successResponse(res, { previousCategory: efyApp.category }, "Previous EFY category retrieved");
 });
 
 export const uploadDocument = asyncHandler(async (req: AuthRequest, res: any) => {

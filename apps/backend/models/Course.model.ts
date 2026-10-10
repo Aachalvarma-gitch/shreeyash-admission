@@ -10,6 +10,7 @@ export interface ICourse extends Document {
   eligibility?: string;
   fees: number;
   seats: number;
+  allocatedSeats: number;
   isActive: boolean;
   displayOrder: number;
   createdBy?: mongoose.Types.ObjectId;
@@ -61,6 +62,11 @@ const courseSchema = new Schema<ICourse>(
       type: Number,
       default: 0,
       min: [0, 'Seats cannot be negative'],
+    },
+    allocatedSeats: {
+      type: Number,
+      default: 0,
+      min: [0, 'Allocated seats cannot be negative'],
     },
     isActive: {
       type: Boolean,

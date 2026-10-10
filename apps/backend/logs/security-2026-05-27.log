@@ -16,3 +16,4 @@
 {"level":"warn","message":"Response: 401 (7ms)","timestamp":"2026-05-27T04:07:11.558Z"}
 {"level":"warn","message":"Response: 400 (37ms)","timestamp":"2026-05-27T04:07:11.607Z"}
 {"level":"error","message":"refresh-token failed","timestamp":"2026-05-27T04:07:11.615Z"}
+{"level":"warn","message":"MongoDB disconnected","timestamp":"2026-05-27T09:26:10.583Z"}

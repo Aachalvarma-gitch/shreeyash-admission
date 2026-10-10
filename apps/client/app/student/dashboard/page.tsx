@@ -117,31 +117,36 @@ export default function Dashboard() {
                   </CardTitle>
                 </CardHeader>
               </Card>
-              <Card>
-                <CardHeader>
-                  <CardDescription>Primary Course</CardDescription>
-                  <CardTitle className="text-base">{(application.primaryCourse as any)?.name || "Not selected"}</CardTitle>
-                </CardHeader>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardDescription>Secondary Course</CardDescription>
-                  <CardTitle className="text-base">{(application.secondaryCourse as any)?.name || "Not selected"}</CardTitle>
-                </CardHeader>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardDescription>Section 2 Category</CardDescription>
-                  <CardTitle className="text-base">{(application.category2 as any)?.name || "Not selected"}</CardTitle>
-                </CardHeader>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardDescription>Section 2 Course</CardDescription>
-                  <CardTitle className="text-base">{(application.primaryCourse2 as any)?.name || "Not selected"}</CardTitle>
-                </CardHeader>
-              </Card>
             </div>
+
+            {application.allocatedCourse ? (
+              <div className="rounded-lg bg-blue-50 border border-blue-200 p-4">
+                <div className="flex items-center gap-3">
+                  <span className="text-2xl text-blue-600">{'\u25CF'}</span>
+                  <div>
+                    <p className="font-semibold text-blue-800">Seat Confirmed</p>
+                    <p className="text-sm text-blue-600">
+                      Allocated: {(application.allocatedCourse as any)?.name || "Unknown course"}
+                    </p>
+                    <div className="text-xs text-blue-500 mt-1">
+                      Admission Status: <Badge variant="default" className="bg-blue-100 text-blue-800">{application.status?.replace(/_/g, " ")}</Badge>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : ['ENGINEERING_FIRST_YEAR', 'DIRECT_SECOND_YEAR_DIPLOMA', 'DIRECT_SECOND_YEAR_FE'].includes(application.admissionType || '') ? (
+              <div className="grid gap-3 md:grid-cols-2">
+                <div className="rounded-lg border p-4 space-y-1">
+                  <p className="text-sm text-muted-foreground">First Priority</p>
+                  <p className="font-medium">{(application.primaryCourse as any)?.name || "-"}</p>
+                  <Badge variant="outline" className="text-yellow-600 border-yellow-200 bg-yellow-50">Awaiting Allocation</Badge>
+                </div>
+                <div className="rounded-lg border p-4 space-y-1">
+                  <p className="text-sm text-muted-foreground">Second Priority</p>
+                  <p className="font-medium">{(application.secondaryCourse as any)?.name || "Not selected"}</p>
+                </div>
+              </div>
+            ) : null}
 
             <div className="flex flex-wrap gap-2">
               <Button variant="outline" onClick={() => router.push("/student/my-application")}>

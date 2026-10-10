@@ -67,7 +67,10 @@ export class LoggerService extends EventEmitter implements ILoggerService {
     return {
       level: (process.env.LOG_LEVEL as LogLevel) || (env === 'production' ? 'warn' : 'debug'),
       enableConsole: process.env.LOG_CONSOLE !== 'false',
-      enableFile: process.env.LOG_FILE !== 'false',
+      enableFile:
+        process.env.LOG_FILE !== undefined
+          ? process.env.LOG_FILE === 'true'
+          : env === 'production',
       enableDatabase: process.env.LOG_DATABASE === 'true',
       enableExternal: process.env.LOG_EXTERNAL_ENABLED === 'true',
       fileConfig: {
@@ -463,7 +466,6 @@ export class LoggerService extends EventEmitter implements ILoggerService {
 
 // Export singleton instance
 export const logger = LoggerService.getInstance();
-
 
 
 

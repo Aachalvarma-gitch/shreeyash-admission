@@ -17,17 +17,11 @@
     "isolatedModules": true,
     "moduleDetection": "force",
     "baseUrl": ".",
+    "ignoreDeprecations": "6.0",
     "paths": {
-      "@skillhub/types/*": ["../packages/types/src/*"]
+      "@skillhub/types/*": ["../../packages/types/src/*"]
     }
   },
   "include": ["**/*.ts", "**/*.js"],
   "exclude": ["node_modules", "dist"]
 }
-
-
-
-
-
-
- 
